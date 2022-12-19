@@ -43,7 +43,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/userLoginButton"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"
@@ -66,7 +66,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/button5"
+                android:id="@+id/userRegisterButton"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"
