@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-136dp"
+            tools:layout_editor_absoluteY="-61dp">
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="83dp"
+                android:layout_marginEnd="83dp"
+                android:backgroundTint="#FEFEFE"
+                android:backgroundTintMode="src_in"
+                android:text="Logout"
+                android:textAllCaps="false"
+                android:textColor="#FD6D40"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/logout"
+                app:iconPadding="0dp"
+                app:iconTint="#FE6D40"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.942"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="83dp"
+                android:layout_marginEnd="83dp"
+                android:backgroundTint="#FE6D40"
+                android:backgroundTintMode="src_in"
+                android:text="Categories"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/categories"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.713"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="83dp"
+                android:layout_marginEnd="83dp"
+                android:backgroundTint="#FE6D40"
+                android:backgroundTintMode="src_in"
+                android:text="Orders"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/order"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.827"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:backgroundTint="#FE6D40"
+                android:backgroundTintMode="src_in"
+                android:text="Toy Store"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/store48px"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.599"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="257dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="324dp"
+                android:text="John Doe"
+                android:textAlignment="center"
+                android:textColor="#545454"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="168dp"
+            android:layout_height="264dp"
+            android:layout_marginStart="121dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="122dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logo"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="104dp"
+            android:layout_height="48dp"
+            android:text="Welcome"
+            android:textAlignment="center"
+            android:textColor="#FE6D40"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
