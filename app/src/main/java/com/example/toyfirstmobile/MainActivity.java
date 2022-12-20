@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
+import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
 import com.example.toyfirstmobile.adapter.CategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.Admin;
@@ -16,36 +20,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    Admin admin;
-    DBHelper db;
-    List<Category> categoryList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_select_category);
+        setContentView(R.layout.activity_main);
+        Button button = (Button) findViewById(R.id.mainactivitybtn);
+        button.setOnClickListener(new View.OnClickListener() {
 
-        initData();
-        initRecyclerView();
-
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), AdminCategoryActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
-    private void initData() {
-        categoryList = new ArrayList<>();
-        categoryList.add(new Category(1, "Gate"));
-        categoryList.add(new Category(2, "Gate"));
-        categoryList.add(new Category(3, "Bake"));
-
-    }
-
-    private void initRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(RecyclerView.VERTICAL);
-        recyclerView.setLayoutManager(layoutManager);
-        CategoryAdapter adapter = new CategoryAdapter(this, categoryList);
-        recyclerView.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
-    }
 }

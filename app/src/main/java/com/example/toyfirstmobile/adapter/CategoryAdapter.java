@@ -51,15 +51,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             name = itemView.findViewById(R.id.btnEditCategory);
-
-
-
         }
 
         public void setData(String name){
             this.name.setText(name);
         }
+
+
     }
 }
