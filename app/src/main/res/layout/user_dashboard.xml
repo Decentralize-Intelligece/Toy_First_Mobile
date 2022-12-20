@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-136dp"
+            tools:layout_editor_absoluteY="-61dp">
+
+            <Button
+                android:id="@+id/userLoginButton"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="83dp"
+                android:layout_marginEnd="83dp"
+                android:backgroundTint="#FE6D40"
+                android:backgroundTintMode="src_in"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.713"
+                tools:ignore="MissingConstraints" />
+
+            <Button
+                android:id="@+id/userRegisterButton"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:layout_marginStart="83dp"
+                android:layout_marginEnd="83dp"
+                android:backgroundTint="#FE6D40"
+                android:backgroundTintMode="src_in"
+                android:text="Register"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@color/black"
+                app:iconPadding="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.827"
+                tools:ignore="MissingConstraints" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="168dp"
+                android:layout_height="264dp"
+                app:srcCompat="@drawable/logo"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="122dp"
+                tools:layout_editor_absoluteY="99dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -12,15 +12,14 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
+        //setContentView(R.layout.activity_main);
         admin = new Admin();
         db = new DBHelper(this);
         db.insertToyCategoryData(1,"Handmade");
-      //  System.out.print("Hello");
-        Log.d("Creation","Created");
-
-
+        setContentView(R.layout.admin_dashboard);
 
     }
 }
