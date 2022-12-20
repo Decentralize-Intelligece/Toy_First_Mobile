@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/delete_btn"
+        android:layout_width="74dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FEFEFE"
+        android:backgroundTintMode="src_in"
+        android:textAllCaps="false"
+        android:textColor="#FD6D40"
+        android:textSize="24sp"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/delete"
+        app:iconPadding="0dp"
+        app:iconTint="#FE6D40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/edit_btn"
+        android:layout_width="305dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FEFEFE"
+        android:backgroundTintMode="src_in"
+        android:text="Handmade"
+        android:textAllCaps="false"
+        android:textColor="#FD6D40"
+        android:textSize="24sp"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/edit"
+        app:iconPadding="0dp"
+        app:iconTint="#FE6D40"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>
