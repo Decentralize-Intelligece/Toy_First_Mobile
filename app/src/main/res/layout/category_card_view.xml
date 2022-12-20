@@ -4,33 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearLayout2"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <Button
-        android:id="@+id/delete_btn"
-        android:layout_width="74dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#FEFEFE"
-        android:backgroundTintMode="src_in"
-        android:textAllCaps="false"
-        android:textColor="#FD6D40"
-        android:textSize="24sp"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/delete"
-        app:iconPadding="0dp"
-        app:iconTint="#FE6D40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/edit_btn"
-        android:layout_width="305dp"
+        android:id="@+id/btnEditCategory"
+        android:layout_width="255dp"
         android:layout_height="71dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
         android:backgroundTint="#FEFEFE"
         android:backgroundTintMode="src_in"
         android:text="Handmade"
@@ -41,9 +21,34 @@
         app:icon="@drawable/edit"
         app:iconPadding="0dp"
         app:iconTint="#FE6D40"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintHorizontal_bias="0.108"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnDeleteCategory"
+        android:layout_width="74dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:backgroundTint="#FEFEFE"
+        android:backgroundTintMode="src_in"
+        android:textAllCaps="false"
+        android:textColor="#FD6D40"
+        android:textSize="24sp"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/delete"
+        app:iconPadding="0dp"
+        app:iconTint="#FE6D40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.189"
+        app:layout_constraintStart_toEndOf="@+id/btnEditCategory"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

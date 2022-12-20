@@ -1,4 +1,4 @@
-package com.example.toyfirstmobile;
+package com.example.toyfirstmobile.model;
 
 public class Customer extends User{
 
