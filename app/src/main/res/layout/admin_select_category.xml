@@ -14,19 +14,15 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="-136dp"
-            tools:layout_editor_absoluteY="-61dp">
+            android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/button6"
+                android:id="@+id/buttonHandMade"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
-                android:layout_marginStart="83dp"
-                android:layout_marginEnd="83dp"
                 android:backgroundTint="#FEFEFE"
                 android:backgroundTintMode="src_in"
-                android:text="Logout"
+                android:text="Handmade"
                 android:textAllCaps="false"
                 android:textColor="#FD6D40"
                 android:textSize="24sp"
@@ -35,16 +31,77 @@
                 app:iconGravity="end"
                 app:iconPadding="0dp"
                 app:iconTint="#FE6D40"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.548"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="360dp" />
+
+            <Button
+                android:id="@+id/buttonCollectibles"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:backgroundTint="#FEFEFE"
+                android:backgroundTintMode="src_in"
+                android:text="Collectibles"
+                android:textAllCaps="false"
+                android:textColor="#FD6D40"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/logout"
+                app:iconGravity="end"
+                app:iconPadding="0dp"
+                app:iconTint="#FE6D40"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="435dp" />
+
+            <Button
+                android:id="@+id/buttonElectronics"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:backgroundTint="#FEFEFE"
+                android:backgroundTintMode="src_in"
+                android:text="Electronics"
+                android:textAllCaps="false"
+                android:textColor="#FD6D40"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/logout"
+                app:iconGravity="end"
+                app:iconPadding="0dp"
+                app:iconTint="#FE6D40"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="510dp" />
+
+            <Button
+                android:id="@+id/buttonAll"
+                android:layout_width="245dp"
+                android:layout_height="75dp"
+                android:backgroundTint="#FEFEFE"
+                android:backgroundTintMode="src_in"
+                android:text="All"
+                android:textAllCaps="false"
+                android:textColor="#FD6D40"
+                android:textSize="24sp"
+                app:cornerRadius="15dp"
+                app:icon="@drawable/logout"
+                app:iconGravity="end"
+                app:iconPadding="0dp"
+                app:iconTint="#FE6D40"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="83dp"
+                tools:layout_editor_absoluteY="585dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="-136dp"
+            tools:layout_editor_absoluteY="-61dp">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/editTextOrderNumber"
                 android:layout_width="257dp"
                 android:layout_height="53dp"
                 android:layout_marginTop="244dp"

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Toy First Mobile</string>
+    <string name="view_orders">View Orders</string>
+    <string name="_1234">#1234</string>
 </resources>

@@ -41,7 +41,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/userRegisterButton"
+                android:id="@+id/buttonCancel"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"
