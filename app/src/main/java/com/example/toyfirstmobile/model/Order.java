@@ -1,4 +1,4 @@
-package com.example.toyfirstmobile;
+package com.example.toyfirstmobile.model;
 
 import java.util.Date;
 

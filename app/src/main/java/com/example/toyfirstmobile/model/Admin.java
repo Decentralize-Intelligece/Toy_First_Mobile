@@ -1,8 +1,8 @@
-package com.example.toyfirstmobile;
+package com.example.toyfirstmobile.model;
 
-import android.content.Context;
 import android.database.Cursor;
-import android.widget.Toast;
+
+import com.example.toyfirstmobile.db.DBHelper;
 
 public class Admin extends User{
 

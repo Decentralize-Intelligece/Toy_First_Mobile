@@ -1,23 +1,19 @@
-package com.example.toyfirstmobile;
+package com.example.toyfirstmobile.activity.category;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-
+import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.adapter.CategoryAdapter;
-import com.example.toyfirstmobile.db.DBHelper;
-import com.example.toyfirstmobile.model.Admin;
 import com.example.toyfirstmobile.model.Category;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-
-    Admin admin;
-    DBHelper db;
+public class AdminCategory extends AppCompatActivity {
     List<Category> categoryList;
 
     @Override
