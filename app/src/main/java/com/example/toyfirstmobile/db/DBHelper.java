@@ -24,7 +24,7 @@ public class DBHelper  extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER(4) PRIMARY KEY NOT NULL, userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
 
             //create toy category table primary key is categoryID, with columns categoryID, categoryName
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER(4) PRIMARY KEY NOT NULL, categoryName TEXT(20) NOT NULL)");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER(4)  PRIMARY KEY AUTOINCREMENT, categoryName TEXT(20) NOT NULL)");
 
             //create toy table primary key is toyID, with columns toyID, toyName, toyPrice, toyQuantity, toyCategory as foreign key from category table, toyImage
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER(4) PRIMARY KEY NOT NULL, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");

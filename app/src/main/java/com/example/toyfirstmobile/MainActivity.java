@@ -20,10 +20,20 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
+
+        dbHelper = new DBHelper(this);
+        dbHelper.insertToyCategoryData(1,"Handmade");
+        dbHelper.insertToyCategoryData(2,"Collectibles");
+        dbHelper.insertToyCategoryData(3,"HotWheels");
+        dbHelper.insertToyCategoryData(4,"Art");
+
         setContentView(R.layout.activity_main);
         Button button = (Button) findViewById(R.id.mainactivitybtn);
         button.setOnClickListener(new View.OnClickListener() {

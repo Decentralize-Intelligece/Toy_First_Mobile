@@ -1,6 +1,7 @@
 package com.example.toyfirstmobile.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
         String name = categoryList.get(position).getName();
-
         holder.setData(name);
     }
 
@@ -46,12 +46,23 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         private Button name;
-
+        private Button delete;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.btnEditCategory);
+            delete = itemView.findViewById(R.id.btnDeleteCategory);
+            itemView.setOnClickListener((v -> {
+                Log.d("Hello", "onclick : position : " + name);
+            }));
+
+            delete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("Hello", "onclick : position : " + name.getText().toString());
+                }
+            });
         }
 
         public void setData(String name){
