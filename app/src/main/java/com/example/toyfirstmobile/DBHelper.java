@@ -1,34 +1,44 @@
 package com.example.toyfirstmobile;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper  extends SQLiteOpenHelper {
-    public DBHelper() {
+    public DBHelper(Context context) {
         //create SQLllte database
-        super(null, "ToyDatabase.db", null, 1);
+        super(context, "ToyDatabase.db", null, 1);
 
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        //create admin table primary key is adminID, with columns adminID, adminName, adminPassword, account type (admin or user)
-        sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER(4) PRIMARY KEY NOT NULL, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
 
-        //create user table primary key is userID, with columns userID, userName, userPassword, account type (admin or user), Name, Address and Phone Number
-        sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER(4) PRIMARY KEY NOT NULL, userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
+        try {
+            //create admin table primary key is adminID, with columns adminID, adminName, adminPassword, account type (admin or user)
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER(4) PRIMARY KEY NOT NULL, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
 
-        //create toy category table primary key is categoryID, with columns categoryID, categoryName
-        sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER(4) PRIMARY KEY NOT NULL, categoryName TEXT(20) NOT NULL)");
+            //create user table primary key is userID, with columns userID, userName, userPassword, account type (admin or user), Name, Address and Phone Number
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER(4) PRIMARY KEY NOT NULL, userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
 
-        //create toy table primary key is toyID, with columns toyID, toyName, toyPrice, toyQuantity, toyCategory as foreign key from category table, toyImage
-        sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER(4) PRIMARY KEY NOT NULL, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
+            //create toy category table primary key is categoryID, with columns categoryID, categoryName
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER(4) PRIMARY KEY NOT NULL, categoryName TEXT(20) NOT NULL)");
 
-        //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
-        sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Orders(orderID INTEGER(4) PRIMARY KEY NOT NULL, userName TEXT(20) NOT NULL, toyID INTEGER(4) NOT NULL, orderStatus TEXT(20) NOT NULL, orderQuantity INTEGER(4) NOT NULL, orderDate TEXT(20) NOT NULL, FOREIGN KEY (toyID) REFERENCES Toy(toyID) ON DELETE CASCADE ON UPDATE CASCADE)");
-    }
+            //create toy table primary key is toyID, with columns toyID, toyName, toyPrice, toyQuantity, toyCategory as foreign key from category table, toyImage
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER(4) PRIMARY KEY NOT NULL, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
+
+            //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
+
+            }
+
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        }
+
+
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
