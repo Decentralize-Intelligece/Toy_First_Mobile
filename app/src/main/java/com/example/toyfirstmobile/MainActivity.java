@@ -20,6 +20,5 @@ public class MainActivity extends AppCompatActivity {
         db = new DBHelper(this);
         db.insertToyCategoryData(1,"Handmade");
         setContentView(R.layout.admin_dashboard);
-
     }
 }

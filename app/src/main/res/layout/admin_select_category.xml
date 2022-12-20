@@ -16,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+
             <Button
                 android:id="@+id/buttonHandMade"
                 android:layout_width="245dp"
@@ -100,6 +101,7 @@
             tools:layout_editor_absoluteX="-136dp"
             tools:layout_editor_absoluteY="-61dp">
 
+
             <TextView
                 android:id="@+id/editTextOrderNumber"
                 android:layout_width="257dp"
@@ -136,7 +138,7 @@
                 android:layout_marginTop="88dp"
                 android:layout_marginEnd="77dp"
                 android:layout_marginBottom="80dp"
-                android:text="Toy Story"
+                android:text="Toy Store"
                 android:textAlignment="center"
                 android:textColor="#FE6D40"
                 android:textSize="38sp"
@@ -145,6 +147,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="332dp"
+                android:layout_height="389dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="341dp" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
