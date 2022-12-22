@@ -54,6 +54,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
                         dbHelper.insertToyCategoryData(newCategoryName);
                         dbHelper.insertUserData("Sudharaka","2dfSvhas",false,"Sudharaka Jayanath","dddddd","0775556667");
                         initData();
+                        initRecyclerView();
 //
 //
                     }

@@ -34,9 +34,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/buttonRegister"
-                android:layout_width="113dp"
-                android:layout_height="62dp"
+                android:id="@+id/btnRegister"
+                android:layout_width="218dp"
+                android:layout_height="67dp"
                 android:layout_marginStart="83dp"
                 android:layout_marginEnd="83dp"
                 android:layout_marginBottom="30dp"
@@ -79,16 +79,16 @@
                         android:layout_width="164dp"
                         android:layout_height="match_parent"
                         android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="First Name" />
+                        android:hint="First Name"
+                        android:inputType="textPersonName" />
 
                     <EditText
                         android:id="@+id/editTextLastName"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:ems="10"
-                        android:inputType="textPersonName"
-                        android:text="Name" />
+                        android:hint="Last Name"
+                        android:inputType="textPersonName" />
                 </LinearLayout>
 
                 <EditText
@@ -96,62 +96,62 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:text="User Name" />
+                    android:hint="User Name"
+                    android:inputType="text" />
 
                 <EditText
                     android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Email"
                     android:inputType="textEmailAddress"
-                    android:minHeight="48dp"
-                    android:text="Email" />
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/editTextPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
+                    android:hint="Password"
                     android:inputType="textPassword"
-                    android:minHeight="48dp"
-                    android:text="Password" />
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/editTextAddress1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Address 1" />
+                    android:hint="Address  Line 1"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/editTextAddress2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Address 2" />
+                    android:hint="Address  Line 2"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/editTextAddress3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Address 3" />
+                    android:hint="Address  Line 3"
+                    android:inputType="text"
+                    android:minHeight="48dp" />
 
                 <EditText
                     android:id="@+id/editTextMobilePhone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="textPersonName"
-                    android:minHeight="48dp"
-                    android:text="Mobile Phone" />
+                    android:hint="Mobile Phone"
+                    android:inputType="phone"
+                    android:minHeight="48dp" />
 
             </LinearLayout>
 
