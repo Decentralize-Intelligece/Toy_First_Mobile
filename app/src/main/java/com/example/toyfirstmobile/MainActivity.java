@@ -29,13 +29,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         dbHelper = new DBHelper(this);
-        dbHelper.insertToyCategoryData(1,"Handmade");
-        dbHelper.insertToyCategoryData(2,"Collectibles");
-        dbHelper.insertToyCategoryData(3,"HotWheels");
-        dbHelper.insertToyCategoryData(4,"Art");
+        //dbHelper.insertUserData("Sudharaka","2dfSvhas",false,"Sudharaka Jayanath","dddddd","0775556667");
+//        dbHelper.insertToyCategoryData(1,"Handmade");
+//        dbHelper.insertToyCategoryData(2,"Collectibles");
+//        dbHelper.insertToyCategoryData(3,"HotWheels");
+//        dbHelper.insertToyCategoryData(4,"Art");
+       // dbHelper.insertToyCategoryData("Brush");
 
-        setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.mainactivitybtn);
+
+
+
+        setContentView(R.layout.user_register);
+        Button button = (Button) findViewById(R.id.buttonRegister);
         button.setOnClickListener(new View.OnClickListener() {
 
             @Override

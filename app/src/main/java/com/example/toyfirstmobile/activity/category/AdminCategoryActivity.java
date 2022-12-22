@@ -51,8 +51,11 @@ public class AdminCategoryActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         newCategoryName = input.getText().toString();
-                        dbHelper.insertToyCategoryData(0, newCategoryName);
-                        categoryList.add(new Category(5, newCategoryName));
+                        dbHelper.insertToyCategoryData(newCategoryName);
+                        dbHelper.insertUserData("Sudharaka","2dfSvhas",false,"Sudharaka Jayanath","dddddd","0775556667");
+                        initData();
+//
+//
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
