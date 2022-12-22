@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
+import com.example.toyfirstmobile.activity.register.UserRegisterActivity;
 import com.example.toyfirstmobile.adapter.CategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.Admin;
@@ -20,32 +21,18 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    DBHelper dbHelper;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
 
-        dbHelper = new DBHelper(this);
-        //dbHelper.insertUserData("Sudharaka","2dfSvhas",false,"Sudharaka Jayanath","dddddd","0775556667");
-//        dbHelper.insertToyCategoryData(1,"Handmade");
-//        dbHelper.insertToyCategoryData(2,"Collectibles");
-//        dbHelper.insertToyCategoryData(3,"HotWheels");
-//        dbHelper.insertToyCategoryData(4,"Art");
-       // dbHelper.insertToyCategoryData("Brush");
-
-
-
-
-        setContentView(R.layout.user_register);
-        Button button = (Button) findViewById(R.id.buttonRegister);
+        setContentView(R.layout.activity_main);
+        Button button = (Button) findViewById(R.id.mainactivitybtn);
         button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), AdminCategoryActivity.class);
+                Intent intent =  new Intent(v.getContext(), UserRegisterActivity.class);
                 v.getContext().startActivity(intent);
             }
         });
