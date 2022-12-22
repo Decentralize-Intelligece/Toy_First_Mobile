@@ -18,16 +18,16 @@ public class DBHelper  extends SQLiteOpenHelper {
 
         try {
             //create admin table primary key is adminID, with columns adminID, adminName, adminPassword, account type (admin or user)
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER(4) PRIMARY KEY NOT NULL, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
+//            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER PRIMARY KEY AUTOINCREMENT, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
 
             //create user table primary key is userID, with columns userID, userName, userPassword, account type (admin or user), Name, Address and Phone Number
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER(4) PRIMARY KEY NOT NULL, userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
 
             //create toy category table primary key is categoryID, with columns categoryID, categoryName
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER(4)  PRIMARY KEY AUTOINCREMENT, categoryName TEXT(20) NOT NULL)");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER PRIMARY KEY AUTOINCREMENT, categoryName TEXT(20) NOT NULL)");
 
             //create toy table primary key is toyID, with columns toyID, toyName, toyPrice, toyQuantity, toyCategory as foreign key from category table, toyImage
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER(4) PRIMARY KEY NOT NULL, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER PRIMARY KEY AUTOINCREMENT, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
 
             //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
 
@@ -42,7 +42,7 @@ public class DBHelper  extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-        sqLiteDatabase.execSQL("drop Table if exists Admin");
+//        sqLiteDatabase.execSQL("drop Table if exists Admin");
         sqLiteDatabase.execSQL("drop Table if exists User");
         sqLiteDatabase.execSQL("drop Table if exists ToyCategory");
         sqLiteDatabase.execSQL("drop Table if exists Toy");
@@ -62,13 +62,13 @@ public class DBHelper  extends SQLiteOpenHelper {
     }
 
     //insert data into user table
-    public boolean insertUserData(int userID, String userName, String userPassword, boolean isAdmin, String Name, String Address, String Phone){
+    public boolean insertUserData(String userName, String userPassword, boolean isAdmin, String Name, String Address, String Phone){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("userID",userID);
+        int isAdm = (isAdmin==true)?1:0;
         contentValues.put("userName",userName);
         contentValues.put("userPassword",userPassword);
-        contentValues.put("isAdmin",isAdmin);
+        contentValues.put("isAdmin",isAdm);
         contentValues.put("Name",Name);
         contentValues.put("address",Address);
         contentValues.put("phone",Phone);
@@ -81,6 +81,15 @@ public class DBHelper  extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("categoryID",categoryID);
+        contentValues.put("categoryName",categoryName);
+        long result =DB.insert("ToyCategory",null,contentValues);
+        return result != 1;
+    }
+
+    //insert data into toy category table
+    public boolean insertToyCategoryData(String categoryName){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
         contentValues.put("categoryName",categoryName);
         long result =DB.insert("ToyCategory",null,contentValues);
         return result != 1;
