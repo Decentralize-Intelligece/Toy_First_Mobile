@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
 import com.example.toyfirstmobile.adapter.UserCategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
+import com.example.toyfirstmobile.db.SharedPreferenceController;
 import com.example.toyfirstmobile.model.Category;
 
 import java.util.ArrayList;
@@ -32,10 +34,23 @@ public class UserCategoryActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_select_category);
+
+
         initData();
         initRecyclerView();
 //        Button btnNewCategory = (Button) findViewById(R.id.btnGetAllCategories);
 
+
+        Button allCategoryButton = (Button) findViewById(R.id.btnGetAllCategories);
+        allCategoryButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Hello", "Clicked all");
+                SharedPreferenceController.setCurrentCategory(UserCategoryActivity.this,"All");
+                String currentCat = SharedPreferenceController.getCurrentCategory(UserCategoryActivity.this);
+                Log.d("Hello", "Current cat : " + currentCat);
+            }
+        });
 
         initData();
         initRecyclerView();

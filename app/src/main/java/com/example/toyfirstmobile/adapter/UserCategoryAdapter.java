@@ -11,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.category.UserCategoryActivity;
+import com.example.toyfirstmobile.db.SharedPreferenceController;
 import com.example.toyfirstmobile.model.Category;
 
 import java.util.List;
@@ -51,13 +53,13 @@ public class UserCategoryAdapter extends RecyclerView.Adapter<UserCategoryAdapte
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.btnGoToCategory);
-//            itemView.setOnClickListener((v -> {
-//                Log.d("Hello", "onclick : position : " + name);
-//            }));
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("Hello", "onclick : position : " + name.getText().toString());
+                    SharedPreferenceController.setCurrentCategory(v.getContext(),name.getText().toString());
+                    String currentCat = SharedPreferenceController.getCurrentCategory(v.getContext());
+                    Log.d("Hello", "Current cat : " + currentCat);
                 }
             });
 
