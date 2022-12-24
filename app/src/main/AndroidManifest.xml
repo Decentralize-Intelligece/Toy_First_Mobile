@@ -12,13 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ToyFirstMobile"
         tools:targetApi="31">
-        <activity
-            android:name=".UserHomeActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+<!--        <activity-->
+<!--            android:name=".MainActivity"-->
+<!--            android:exported="false">-->
+<!--            <meta-data-->
+<!--                android:name="android.app.lib_name"-->
+<!--                android:value="" />-->
+<!--        </activity>-->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -38,6 +38,8 @@
         <activity android:name=".activity.login.UserLoginActivity" />
         <activity android:name=".activity.dashboards.AdminDashboardActivity" />
         <activity android:name=".activity.dashboards.UserDashboardActivity" />
+        <activity android:name=".activity.category.UserCategoryActivity" />
+        <activity android:name=".activity.toy.AdminAddToyActivity" />
     </application>
 
 </manifest>

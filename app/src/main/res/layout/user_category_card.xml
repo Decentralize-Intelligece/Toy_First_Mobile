@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <Button
+        android:id="@+id/btnGoToCategory"
+        android:layout_width="378dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="#FEFEFE"
+        android:backgroundTintMode="src_in"
+        android:text="Handmade"
+        android:textAllCaps="false"
+        android:textColor="#FD6D40"
+        android:textSize="24sp"
+        app:cornerRadius="15dp"
+        app:icon="@drawable/arrow_circle"
+        app:iconPadding="0dp"
+        app:iconTint="#FE6D40"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.024"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

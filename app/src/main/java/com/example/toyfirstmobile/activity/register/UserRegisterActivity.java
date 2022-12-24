@@ -28,7 +28,7 @@ public class UserRegisterActivity extends AppCompatActivity {
         EditText txtAddress2 = (EditText) findViewById(R.id.editTextAddress2);
         EditText txtAddress3 = (EditText) findViewById(R.id.editTextAddress3);
         EditText txtMobile = (EditText) findViewById(R.id.editTextMobilePhone);
-        Button btnRegister = (Button) findViewById(R.id.btnRegister);
+        Button btnRegister = (Button) findViewById(R.id.btnAdminAddToy);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override

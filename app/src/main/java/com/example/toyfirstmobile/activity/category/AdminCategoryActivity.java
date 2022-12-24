@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
-import com.example.toyfirstmobile.adapter.CategoryAdapter;
+import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.Category;
 
@@ -91,7 +91,7 @@ public class AdminCategoryActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        CategoryAdapter adapter = new CategoryAdapter(this, categoryList);
+        AdminCategoryAdapter adapter = new AdminCategoryAdapter(this, categoryList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }

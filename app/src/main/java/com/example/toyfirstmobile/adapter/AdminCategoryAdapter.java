@@ -15,25 +15,25 @@ import com.example.toyfirstmobile.R;
 
 import java.util.List;
 
-public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHolder> {
+public class AdminCategoryAdapter extends RecyclerView.Adapter<AdminCategoryAdapter.ViewHolder> {
 
     private List<Category> categoryList;
     private LayoutInflater mInflater;
 
-    public CategoryAdapter(Context context, List<Category> categoryList) {
+    public AdminCategoryAdapter(Context context, List<Category> categoryList) {
         this.mInflater = LayoutInflater.from(context);
         this.categoryList = categoryList;
     }
 
     @NonNull
     @Override
-    public CategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = mInflater.inflate(R.layout.category_card_view, parent, false);
+    public AdminCategoryAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.admin_category_card_view, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CategoryAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull AdminCategoryAdapter.ViewHolder holder, int position) {
         String name = categoryList.get(position).getName();
         holder.setData(name);
     }

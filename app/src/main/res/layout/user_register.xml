@@ -28,13 +28,13 @@
                 android:textAlignment="center"
                 android:textColor="#FE6D40"
                 android:textSize="34sp"
-                app:layout_constraintBottom_toTopOf="@+id/btnRegister"
+                app:layout_constraintBottom_toTopOf="@+id/btnAdminAddToy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnAdminAddToy"
                 android:layout_width="218dp"
                 android:layout_height="67dp"
                 android:layout_marginStart="83dp"

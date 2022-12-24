@@ -102,7 +102,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/btnAdminToyStore2"
+                android:id="@+id/btnUserToyStore"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:backgroundTint="#FE6D40"
