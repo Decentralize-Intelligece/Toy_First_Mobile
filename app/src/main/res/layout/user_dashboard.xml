@@ -19,7 +19,7 @@
             tools:layout_editor_absoluteY="-61dp">
 
             <Button
-                android:id="@+id/userLoginButton"
+                android:id="@+id/btnAdminCategories"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"
@@ -41,7 +41,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/buttonCancel"
+                android:id="@+id/btnAdminLogout"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"

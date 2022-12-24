@@ -28,7 +28,7 @@
                 android:textAlignment="center"
                 android:textColor="#FE6D40"
                 android:textSize="34sp"
-                app:layout_constraintBottom_toTopOf="@+id/buttonCancel"
+                app:layout_constraintBottom_toTopOf="@+id/btnAdminLogout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
