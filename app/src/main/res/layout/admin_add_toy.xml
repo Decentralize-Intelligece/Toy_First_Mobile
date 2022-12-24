@@ -34,7 +34,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/btnRegister"
+                android:id="@+id/btnAdminAddToy"
                 android:layout_width="218dp"
                 android:layout_height="67dp"
                 android:layout_marginStart="83dp"
@@ -75,7 +75,7 @@
                     android:orientation="horizontal"/>
 
                 <EditText
-                    android:id="@+id/editTextToyName"
+                    android:id="@+id/txtToyName"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:ems="10"
@@ -83,7 +83,7 @@
                     android:inputType="text" />
 
                 <EditText
-                    android:id="@+id/editTextPrice"
+                    android:id="@+id/txtToyPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -92,22 +92,18 @@
                     android:minHeight="48dp" />
 
                 <EditText
-                    android:id="@+id/editTextCategory"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Category"
-                    android:inputType="textPassword"
-                    android:minHeight="48dp" />
-
-                <EditText
-                    android:id="@+id/editTextQuantity"
+                    android:id="@+id/txtToyQuantity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="Quantity"
                     android:inputType="text"
                     android:minHeight="48dp" />
+
+                <Spinner
+                    android:id="@+id/spinnerCategories"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp" />
 
             </LinearLayout>
 

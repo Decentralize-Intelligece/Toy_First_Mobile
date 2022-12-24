@@ -17,8 +17,8 @@ public class UserDashboardActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_dashboard);
-        Button button4 = (Button) findViewById(R.id.btnUserToyStore);
-        button4.setOnClickListener(new View.OnClickListener() {
+        Button btnToyStore = (Button) findViewById(R.id.btnUserToyStore);
+        btnToyStore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(v.getContext(), UserCategoryActivity.class);
