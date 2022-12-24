@@ -21,7 +21,7 @@ public class DBHelper  extends SQLiteOpenHelper {
 //            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER PRIMARY KEY AUTOINCREMENT, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
 
             //create user table primary key is userID, with columns userID, userName, userPassword, account type (admin or user), Name, Address and Phone Number
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT(40), userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
 
             //create toy category table primary key is categoryID, with columns categoryID, categoryName
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER PRIMARY KEY AUTOINCREMENT, categoryName TEXT(20) NOT NULL)");
@@ -43,29 +43,32 @@ public class DBHelper  extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 //        sqLiteDatabase.execSQL("drop Table if exists Admin");
-        sqLiteDatabase.execSQL("drop Table if exists User");
-        sqLiteDatabase.execSQL("drop Table if exists ToyCategory");
-        sqLiteDatabase.execSQL("drop Table if exists Toy");
-        sqLiteDatabase.execSQL("drop Table if exists Orders");
+//        sqLiteDatabase.execSQL("drop Table if exists User");
+        //add new column to user table
+//        sqLiteDatabase.execSQL("ALTER TABLE User ADD COLUMN email TEXT(40) NOT NULL");
+//        sqLiteDatabase.execSQL("drop Table if exists ToyCategory");
+//        sqLiteDatabase.execSQL("drop Table if exists Toy");
+//        sqLiteDatabase.execSQL("drop Table if exists Orders");
     }
 
     //not need this method. because we don't need to insert data into admin table.
-    public boolean insertAdminData(int adminID, String adminName, String adminPassword, boolean isAdmin){
-        SQLiteDatabase DB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("adminID",adminID);
-        contentValues.put("adminName",adminName);
-        contentValues.put("adminPassword",adminPassword);
-        contentValues.put("isAdmin",isAdmin);
-        long result =DB.insert("Admin",null,contentValues);
-        return result != 1;
-    }
+//    public boolean insertAdminData(int adminID, String adminName, String adminPassword, boolean isAdmin){
+//        SQLiteDatabase DB = this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put("adminID",adminID);
+//        contentValues.put("adminName",adminName);
+//        contentValues.put("adminPassword",adminPassword);
+//        contentValues.put("isAdmin",isAdmin);
+//        long result =DB.insert("Admin",null,contentValues);
+//        return result != 1;
+//    }
 
     //insert data into user table
-    public boolean insertUserData(String userName, String userPassword, boolean isAdmin, String Name, String Address, String Phone){
+    public boolean insertUserData(String email, String userName, String userPassword, boolean isAdmin, String Name, String Address, String Phone){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         int isAdm = (isAdmin==true)?1:0;
+        contentValues.put("email",email);
         contentValues.put("userName",userName);
         contentValues.put("userPassword",userPassword);
         contentValues.put("isAdmin",isAdm);
@@ -194,6 +197,14 @@ public class DBHelper  extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("Select * from Toy",null);
         return cursor;
     }
+
+    //retrieve user data by email
+    public Cursor getUserDataByEmail(String email){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from User where email = ?", new String[]{email});
+        return cursor;
+    }
+
 
 }
 

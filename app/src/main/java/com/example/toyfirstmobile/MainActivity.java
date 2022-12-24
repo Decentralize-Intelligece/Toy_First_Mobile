@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
+import com.example.toyfirstmobile.activity.login.UserLoginActivity;
 import com.example.toyfirstmobile.activity.register.UserRegisterActivity;
 import com.example.toyfirstmobile.adapter.CategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
@@ -28,11 +29,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Button button = (Button) findViewById(R.id.mainactivitybtn);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button1 = (Button) findViewById(R.id.mainactivitybtn1);
+        button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent =  new Intent(v.getContext(), UserRegisterActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        Button button2 = (Button) findViewById(R.id.mainactivitybtn2);
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(v.getContext(), UserLoginActivity.class);
                 v.getContext().startActivity(intent);
             }
         });

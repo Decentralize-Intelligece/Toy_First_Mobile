@@ -43,9 +43,8 @@ public class UserRegisterActivity extends AppCompatActivity {
                 String address3 = txtAddress3.getText().toString();
                 String mobile = txtMobile.getText().toString();
 
-                dbHelper.insertUserData(userName, password,false,fName + " " + lName,address1 + ", " + address2 + ", " + address3, mobile);
-
-            }
+                dbHelper.insertUserData(email,userName, password,false,fName + " " + lName,address1 + ", " + address2 + ", " + address3, mobile);
+                            }
         });
 
     }
