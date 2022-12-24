@@ -1,9 +1,8 @@
 package com.example.toyfirstmobile.activity.login;
 import com.example.toyfirstmobile.R;
-import com.example.toyfirstmobile.activity.user.UserHomeActivity;
+import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.db.DBHelper;
 
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -65,7 +64,7 @@ public class UserLoginActivity extends AppCompatActivity {
                             if (res.getString(3).equals(password)) {
                                 Log.d("UserLoginActivity", "password correct");
                                 //go to the user home page
-                                Intent intent = new Intent(v.getContext(), UserHomeActivity.class);
+                                Intent intent = new Intent(v.getContext(), UserDashboardActivity.class);
                                 startActivity(intent);
 
                             } else {

@@ -1,26 +1,16 @@
 package com.example.toyfirstmobile;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
+import com.example.toyfirstmobile.activity.dashboards.AdminDashboardActivity;
+import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.activity.login.UserLoginActivity;
 import com.example.toyfirstmobile.activity.register.UserRegisterActivity;
-import com.example.toyfirstmobile.adapter.CategoryAdapter;
-import com.example.toyfirstmobile.db.DBHelper;
-import com.example.toyfirstmobile.model.Admin;
-import com.example.toyfirstmobile.model.Category;
-import com.example.toyfirstmobile.validation.Validation;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
-        Button button1 = (Button) findViewById(R.id.mainactivitybtn1);
+        Button button1 = (Button) findViewById(R.id.btnMainRegister);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button2 = (Button) findViewById(R.id.mainactivitybtn2);
+        Button button2 = (Button) findViewById(R.id.btnMainLogin);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,14 +39,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button3 = (Button) findViewById(R.id.mainactivitybtn3);
+        Button button3 = (Button) findViewById(R.id.btnGoToUserDashboard);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(v.getContext(), AdminCategoryActivity.class);
+                Intent intent =  new Intent(v.getContext(), UserDashboardActivity.class);
                 v.getContext().startActivity(intent);
             }
         });
+
+        Button button4 = (Button) findViewById(R.id.btnGoToAdminDashboard);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(v.getContext(), AdminDashboardActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
     }
 
 }

@@ -24,5 +24,15 @@ public class Validation {
         return matcher.matches();
     }
 
+    public boolean isUniqueEmail(String email){
+
+        return true;
+    }
+
+    public boolean isUniqueUserName(String userName){
+
+        return true;
+    }
+
 
 }

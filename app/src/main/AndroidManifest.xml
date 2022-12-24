@@ -36,7 +36,8 @@
         <activity android:name=".activity.register.UserRegisterActivity" />
         <activity android:name=".activity.toy.AdminToyActivity" />
         <activity android:name=".activity.login.UserLoginActivity" />
-        <activity android:name=".activity.user.UserHomeActivity" />
+        <activity android:name=".activity.dashboards.AdminDashboardActivity" />
+        <activity android:name=".activity.dashboards.UserDashboardActivity" />
     </application>
 
 </manifest>
