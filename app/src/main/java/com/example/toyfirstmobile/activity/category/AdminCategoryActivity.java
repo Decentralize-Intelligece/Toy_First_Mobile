@@ -31,7 +31,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_select_category);
-
+        initData();
+        initRecyclerView();
         Button btnNewCategory = (Button) findViewById(R.id.btnNewCategory);
         btnNewCategory.setOnClickListener(new View.OnClickListener() {
 
