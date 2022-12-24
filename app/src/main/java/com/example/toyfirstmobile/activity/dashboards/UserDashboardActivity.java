@@ -10,6 +10,6 @@ public class UserDashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.user_home);
+        setContentView(R.layout.user_dashboard);
     }
 }
