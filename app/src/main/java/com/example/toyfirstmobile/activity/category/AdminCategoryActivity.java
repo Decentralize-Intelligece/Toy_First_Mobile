@@ -52,7 +52,6 @@ public class AdminCategoryActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         newCategoryName = input.getText().toString();
                         dbHelper.insertToyCategoryData(newCategoryName);
-                        dbHelper.insertUserData("Sudharaka","2dfSvhas",false,"Sudharaka Jayanath","dddddd","0775556667");
                         initData();
                         initRecyclerView();
 //
@@ -70,8 +69,8 @@ public class AdminCategoryActivity extends AppCompatActivity {
             }
         });
 
-        initData();
-        initRecyclerView();
+//        initData();
+//        initRecyclerView();
 
     }
 
