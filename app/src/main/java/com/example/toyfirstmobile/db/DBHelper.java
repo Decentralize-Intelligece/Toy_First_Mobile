@@ -31,6 +31,13 @@ public class DBHelper  extends SQLiteOpenHelper {
 
             //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
 
+
+            //create shopping cart table
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ShoppingCart(cartID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, FOREIGN KEY (userID) REFERENCES User(userID) ON DELETE CASCADE ON UPDATE CASCADE )");
+
+            //create shiopping cart item table
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ShoppingCartItem(cartItemID INTEGER PRIMARY KEY AUTOINCREMENT, toyID INTEGER NOT NULL,quantity INTEGER(4) NOT NULL,shoppingCartID INTEGER NOT NULL, FOREIGN KEY (toyID) REFERENCES toy(toyID) ON DELETE CASCADE ON UPDATE CASCADE ,FOREIGN KEY (shoppingCartID) REFERENCES ShoppingCart(cartID) ON DELETE CASCADE ON UPDATE CASCADE )");
+
             }
 
         catch(Exception e){
