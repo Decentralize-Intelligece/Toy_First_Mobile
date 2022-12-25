@@ -89,7 +89,7 @@ public class AdminAddToyActivity extends AppCompatActivity {
                 int toyCategory = Integer.parseInt(spinner.getSelectedItem().toString().split("-")[0]);
 
                 Log.d("Hello",toyName + " " + toyPrice + " " + toyQuantity + " " + toyCategory);
-                dbHelper.insertToyData(1,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
+                dbHelper.insertToyData(3,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
 
             }
         });

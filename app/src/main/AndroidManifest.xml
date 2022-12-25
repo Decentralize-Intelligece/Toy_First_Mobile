@@ -34,7 +34,7 @@
         </activity>
         <activity android:name=".activity.category.AdminCategoryActivity" />
         <activity android:name=".activity.register.UserRegisterActivity" />
-        <activity android:name=".activity.toy.AdminToyActivity" />
+        <activity android:name=".activity.toy.AdminToyStoreActivity" />
         <activity android:name=".activity.login.UserLoginActivity" />
         <activity android:name=".activity.dashboards.AdminDashboardActivity" />
         <activity android:name=".activity.dashboards.UserDashboardActivity" />

@@ -5,13 +5,15 @@ import android.graphics.Bitmap;
 public class ToyData {
     private int toyID;
     private String name;
+    private float toyPrice;
     private int quantity;
-    private String category;
-    private Bitmap image;
+    private int category;
+    private byte[] image;
 
-    public ToyData(int toyID, String name, int quantity, String category, Bitmap image) {
+    public ToyData(int toyID, String name, float toyPrice, int quantity, int category, byte[] image) {
         this.toyID = toyID;
         this.name = name;
+        this.toyPrice = toyPrice;
         this.quantity = quantity;
         this.category = category;
         this.image = image;
@@ -33,6 +35,14 @@ public class ToyData {
         this.name = name;
     }
 
+    public float getToyPrice() {
+        return toyPrice;
+    }
+
+    public void setToyPrice(float toyPrice) {
+        this.toyPrice = toyPrice;
+    }
+
     public int getQuantity() {
         return quantity;
     }
@@ -41,19 +51,19 @@ public class ToyData {
         this.quantity = quantity;
     }
 
-    public String getCategory() {
+    public int getCategory() {
         return category;
     }
 
-    public void setCategory(String category) {
+    public void setCategory(int category) {
         this.category = category;
     }
 
-    public Bitmap getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Bitmap image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 }
