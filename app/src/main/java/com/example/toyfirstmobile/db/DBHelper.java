@@ -22,16 +22,23 @@ public class DBHelper  extends SQLiteOpenHelper {
 //            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER PRIMARY KEY AUTOINCREMENT, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
 
             //create user table primary key is userID, with columns userID, userName, userPassword, account type (admin or user), Name, Address and Phone Number
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT(40), userName TEXT(20) NOT NULL, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS User(userID INTEGER PRIMARY KEY AUTOINCREMENT, email TEXT(40) UNIQUE, userName TEXT(20) NOT NULL UNIQUE, userPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 0, name TEXT(20) NOT NULL, address TEXT(20) NOT NULL, phone TEXT(15) NOT NULL)");
 
             //create toy category table primary key is categoryID, with columns categoryID, categoryName
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER PRIMARY KEY AUTOINCREMENT, categoryName TEXT(20) NOT NULL)");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ToyCategory(categoryID INTEGER PRIMARY KEY AUTOINCREMENT, categoryName TEXT(20) NOT NULL UNIQUE)");
 
             //create toy table primary key is toyID, with columns toyID, toyName, toyPrice, toyQuantity, toyCategory as foreign key from category table, toyImage
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER PRIMARY KEY AUTOINCREMENT, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
 
             //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
 
+
+
+            //create shopping cart table
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ShoppingCart(cartID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, FOREIGN KEY (userID) REFERENCES User(userID) ON DELETE CASCADE ON UPDATE CASCADE )");
+
+            //create shiopping cart item table
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ShoppingCartItem(cartItemID INTEGER PRIMARY KEY AUTOINCREMENT, toyID INTEGER NOT NULL,quantity INTEGER(4) NOT NULL,shoppingCartID INTEGER NOT NULL, FOREIGN KEY (toyID) REFERENCES toy(toyID) ON DELETE CASCADE ON UPDATE CASCADE ,FOREIGN KEY (shoppingCartID) REFERENCES ShoppingCart(cartID) ON DELETE CASCADE ON UPDATE CASCADE )");
 
 
             }
