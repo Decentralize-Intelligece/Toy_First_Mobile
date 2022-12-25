@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
 
 public class DBHelper  extends SQLiteOpenHelper {
     public DBHelper(Context context) {
@@ -30,6 +31,8 @@ public class DBHelper  extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER PRIMARY KEY AUTOINCREMENT, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
 
             //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
+
+
 
             }
 
