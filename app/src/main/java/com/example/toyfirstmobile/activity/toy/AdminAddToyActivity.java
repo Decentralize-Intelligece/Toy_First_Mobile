@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -30,6 +31,7 @@ import com.github.dhaval2404.imagepicker.ImagePicker;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 
 
@@ -62,12 +64,17 @@ public class AdminAddToyActivity extends AppCompatActivity {
         txtPrice = (EditText) findViewById(R.id.txtToyPrice);
         txtQuantity = (EditText) findViewById(R.id.txtToyQuantity);
         btnAddToy = (Button) findViewById(R.id.btnAdminAddToy);
+        imageView.setBackgroundResource(R.drawable.defaulttoyimage);
 
         initData();
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, categoryList);
 
         spinner = (Spinner) findViewById(R.id.spinnerCategories);
         spinner.setAdapter(adapter);
+
+
+//        setDefaultImage();
+
 
         btnAddImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +97,10 @@ public class AdminAddToyActivity extends AppCompatActivity {
 
                 Log.d("Hello",toyName + " " + toyPrice + " " + toyQuantity + " " + toyCategory);
 
+//                if(imageInByte == null){
+//                    setDefaultImage();
+//                }
+
                 dbHelper.insertToyData(toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
 
                 //dbHelper.insertToyData(5,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
@@ -103,12 +114,28 @@ public class AdminAddToyActivity extends AppCompatActivity {
 
     }
 
+//    protected void setDefaultImage(){
+//        imageView.setBackgroundResource(R.drawable.defaulttoyimage);
+//        imageToStore = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
+////        byteArrayOutputStream = new ByteArrayOutputStream();
+////        imageToStore.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+////        imageInByte = byteArrayOutputStream.toByteArray();
+//
+//        ByteBuffer byteBuffer = ByteBuffer.allocate(imageToStore.getByteCount());
+//        imageToStore.copyPixelsToBuffer(byteBuffer);
+//        byteBuffer.rewind();
+//        imageInByte= byteBuffer.array();
+//
+//    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK){
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
+
+
             try {
                 imageToStore = MediaStore.Images.Media.getBitmap(getContentResolver(),imageUri);
                 byteArrayOutputStream = new ByteArrayOutputStream();

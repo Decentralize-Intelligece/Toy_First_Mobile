@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.ToyData;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import java.util.List;
 public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdapter.ViewHolder>{
     private List<ToyData> toyList;
     private LayoutInflater mInflater;
+//    DBHelper dbHelper = new DBHelper(new C);
 
     public AdminToyStoreAdapter(Context context, List<ToyData> toyList) {
         this.mInflater = LayoutInflater.from(context);
@@ -79,7 +81,7 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
 
         public void setData(String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
             this.txtToyName.setText(name);
-            this.txtToyCategory.setText(category+"");
+            this.txtToyCategory.setText(  category+"");
             this.txtToyQty.setText("Quantity : "+toyQuantity + "");
             this.txtToyPrice.setText("LKR " + toyPrice + "");
             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
