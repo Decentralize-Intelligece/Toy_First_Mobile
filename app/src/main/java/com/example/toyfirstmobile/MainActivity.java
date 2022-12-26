@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,6 +13,7 @@ import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.activity.login.UserLoginActivity;
 import com.example.toyfirstmobile.activity.register.UserRegisterActivity;
 import com.example.toyfirstmobile.db.DBHelper;
+import com.example.toyfirstmobile.model.ShoppingCart;
 import com.example.toyfirstmobile.model.ShoppingCartItem;
 
 import java.util.Vector;
@@ -20,6 +22,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ShoppingCart cart = new ShoppingCart();
+        cart.addItem(new ShoppingCartItem(1,3,75,1,45.0f));
+        cart.addItem(new ShoppingCartItem(1,4,75,1,45.0f));
+        cart.removeItem(new ShoppingCartItem(1,3,40,1,45.0f));
+
+        String cost  = "Total cost is "+ ShoppingCart.total;
+
+        Log.d("cart",ShoppingCart.items.get(1).toString());
+        Log.d("cart",cost);
+
+
+
 
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
@@ -70,9 +84,7 @@ public class MainActivity extends AppCompatActivity {
 //        items.add(new ShoppingCartItem(3,25,68));
 //        items.add(new ShoppingCartItem(3,25,68));
 //
-        DBHelper db = new DBHelper(this);
-        //db.insertUserData("dfsd","fdsfa","dfasfa",false,"fsf","dfsd","0255");
-        db.insertShoppingCartItem(new ShoppingCartItem(2,4,8),1);
+
 
     }
 

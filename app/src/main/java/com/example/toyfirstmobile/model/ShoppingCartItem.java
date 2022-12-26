@@ -3,17 +3,33 @@ package com.example.toyfirstmobile.model;// This class contains data for an indi
 
 import java.net.URL;
 
-public class ShoppingCartItem implements Cloneable
+public class ShoppingCartItem
 {
     private int id;//holds the shopping cart item id
     private int toyID;
     private int quantity;
     private int shoppingCartID;
+    private float cost;
 
 
-    public ShoppingCartItem()
-    {
+
+    public ShoppingCartItem(int id, int toyID, int quantity, int shoppingCartID, float cost) {
+        this.id = id;
+        this.toyID = toyID;
+        this.quantity = quantity;
+        this.shoppingCartID = shoppingCartID;
+        this.cost = cost;
     }
+
+    public float getCost() {
+        return cost;
+    }
+
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+
+
 
     public int getToyID() {
         return toyID;
@@ -39,15 +55,7 @@ public class ShoppingCartItem implements Cloneable
         this.shoppingCartID = shoppingCartID;
     }
 
-    public ShoppingCartItem(int toyID,
-                            int quantity, int shoppingCartID)
-    {
 
-        this.toyID =
-        this.quantity = quantity;
-        this.shoppingCartID = shoppingCartID;
-
-    }
 
 // The add method is a quick method for combining two similar
 // items. It doesn't perform any checks to insure that they are
@@ -92,16 +100,16 @@ public class ShoppingCartItem implements Cloneable
 
 // Create a copy of this object
 
-    public ShoppingCartItem copy()
-    {
-        return new ShoppingCartItem(toyID,
-                quantity,shoppingCartID);
-    }
+//    public ShoppingCartItem copy()
+//    {
+//        return new ShoppingCartItem(toyID,
+//                quantity,shoppingCartID);
+//    }
 
 // Create a printable version of this object
 
-//    public String toString()
-//    {
-//        return itemName+" cost: "+itemCost+" qty: "+quantity+" desc: ";
-//    }
+    public String toString()
+    {
+        return toyID + " " + quantity;
+    }
 }

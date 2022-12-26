@@ -38,14 +38,6 @@ public class DBHelper  extends SQLiteOpenHelper {
             //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
 
 
-
-            //create shopping cart table
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ShoppingCart(cartID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, FOREIGN KEY (userID) REFERENCES User(userID) ON DELETE CASCADE ON UPDATE CASCADE )");
-
-            //create shiopping cart item table
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS ShoppingCartItem(cartItemID INTEGER PRIMARY KEY AUTOINCREMENT, toyID INTEGER NOT NULL,quantity INTEGER(4) NOT NULL,shoppingCartID INTEGER NOT NULL, FOREIGN KEY (toyID) REFERENCES toy(toyID) ON DELETE CASCADE ON UPDATE CASCADE ,FOREIGN KEY (shoppingCartID) REFERENCES ShoppingCart(cartID) ON DELETE CASCADE ON UPDATE CASCADE )");
-
-
             }
 
         catch(Exception e){
@@ -220,95 +212,7 @@ public class DBHelper  extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public boolean insertShoppingCartData(Vector<ShoppingCartItem> items,int userID){
 
-        SQLiteDatabase DB = this.getWritableDatabase();
-
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("userID",userID);
-            long result = DB.insert("ShoppingCart",null,contentValues);
-            String res = "result is"+result;
-            int cartID = Long.valueOf(res).intValue();
-            Log.d("insert",res);
-
-
-
-            //insertShoppingCartItem(items,cartID);
-
-//            for(ShoppingCartItem item:items){
-//
-//                Log.d("insert_2","Before insert");
-////                ContentValues contentValues_two = new ContentValues();
-////                contentValues_two.put("toyID",item.getToyID());
-////                contentValues_two.put("quantity",item.getQuantity());
-////                contentValues_two.put("shoppingCartID",cartID);
-////
-////                Log.d("insert_2","Middle insert");
-////
-////                long result_two = DB.insert("ShoppingCartItem",null,contentValues_two);
-//
-//                DB.execSQL("INSERT INTO ShoppingCartItem (toyID,quantity,shoppingCartID)\n" +
-//                        "VALUES(3,55,3)");
-//                //
-//                Log.d("insert_2","After insert");
-//
-//            }
-
-            return result!=1;
-
-    }
-
-
-    public boolean insertShoppingCartItem(ShoppingCartItem item,int cartID){
-
-
-            SQLiteDatabase DB = this.getWritableDatabase();
-            ContentValues contentValues= new ContentValues();
-            contentValues.put("toyID",item.getToyID());
-            contentValues.put("quantity",item.getQuantity());
-            contentValues.put("shoppingCartID",cartID);
-
-            Log.d("insert_2","Middle insert");
-
-            long result = DB.insert("ShoppingCartItem",null,contentValues);
-
-
-
-            return result !=1;
-
-
-        }
-
-
-        public boolean updateShoppingCartItem(int itemID,int quantity){
-
-            SQLiteDatabase DB = this.getWritableDatabase();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("quantity", quantity);
-
-            Cursor cursor = DB.rawQuery("Select * from ShoppingCartItem where cartItemID = ?", new String[]{String.valueOf(itemID)});
-            if (cursor.getCount() > 0) {
-                long result = DB.update("ShoppingCartItem", contentValues, "cartItemID = ?", new String[]{String.valueOf(itemID)});
-                return result != 1;
-            } else {
-                return false;
-            }
-
-
-
-
-        }
-
-    public boolean deleteShoppingCartItem(int itemID) {
-        SQLiteDatabase DB = this.getWritableDatabase();
-        Cursor cursor = DB.rawQuery("Select * from ShoppingCartItem where cartItemID = ?", new String[]{String.valueOf(itemID)});
-        if (cursor.getCount() > 0) {
-            long result = DB.delete("ShoppingCartItem", "cartItemID = ?", new String[]{String.valueOf(itemID)});
-            return result != 1;
-        } else {
-            return false;
-        }
-    }
 
 
 
