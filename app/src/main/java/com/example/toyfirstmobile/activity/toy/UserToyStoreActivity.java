@@ -1,10 +1,9 @@
 package com.example.toyfirstmobile.activity.toy;
 
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,39 +12,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.adapter.AdminToyStoreAdapter;
+import com.example.toyfirstmobile.adapter.UserToyStoreAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
+import com.example.toyfirstmobile.db.SharedPreferenceController;
 import com.example.toyfirstmobile.model.ToyData;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminToyStoreActivity extends AppCompatActivity {
-    Button btnGotoAddToy;
+public class UserToyStoreActivity extends AppCompatActivity {
+    Button viewCart;
     List<ToyData> toyDataList;
     DBHelper dbHelper = new DBHelper(this);
+    TextView txtCategory;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_toy_store);
+        setContentView(R.layout.user_toy_store);
         initData();
         initRecyclerView();
-
-
-        btnGotoAddToy = (Button) findViewById(R.id.btnUserToyStoreViewCart);
-
-
-        btnGotoAddToy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =  new Intent(v.getContext(), AdminAddToyActivity.class);
-                v.getContext().startActivity(intent);
-            }
-        });
-
-
+        txtCategory = (TextView) findViewById(R.id.txtUserCurrentCategory);
+        txtCategory.setText(SharedPreferenceController.getCurrentCategory(this));
     }
 
     private void initData() {
@@ -74,11 +64,11 @@ public class AdminToyStoreActivity extends AppCompatActivity {
     }
 
     private void initRecyclerView() {
-        RecyclerView recyclerView = findViewById(R.id.recyclerViewAdminToyStore);
+        RecyclerView recyclerView = findViewById(R.id.recyclerViewUserToyStore);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        AdminToyStoreAdapter adapter = new AdminToyStoreAdapter(this, toyDataList);
+        UserToyStoreAdapter adapter = new UserToyStoreAdapter(this, toyDataList);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
