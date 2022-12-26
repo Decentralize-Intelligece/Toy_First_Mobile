@@ -55,8 +55,6 @@ public class AdminCategoryActivity extends AppCompatActivity {
                         dbHelper.insertToyCategoryData(newCategoryName);
                         initData();
                         initRecyclerView();
-//
-//
                     }
                 });
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -69,13 +67,10 @@ public class AdminCategoryActivity extends AppCompatActivity {
                 builder.show();
             }
         });
-
-//        initData();
-//        initRecyclerView();
-
     }
 
-    private void initData() {
+    //defined public because need to access in other classes ex: in AdminCategoryAdapter class
+    public void initData() {
         categoryList = new ArrayList<>();
         Cursor cursor = dbHelper.getToyCategoryData();
         int idId = cursor.getColumnIndex("categoryID");
@@ -83,18 +78,15 @@ public class AdminCategoryActivity extends AppCompatActivity {
         for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
             categoryList.add(new Category(cursor.getInt(idId), cursor.getString(idName)));
         }
-
     }
 
-    private void initRecyclerView() {
+    public void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        AdminCategoryAdapter adapter = new AdminCategoryAdapter(this, categoryList);
+        AdminCategoryAdapter adapter = new AdminCategoryAdapter(this, categoryList, dbHelper);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
-
-
 }

@@ -7,12 +7,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 
+import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
+
 public class DBHelper  extends SQLiteOpenHelper {
     public DBHelper(Context context) {
         //create SQLllte database
         super(context, "ToyDatabase.db", null, 1);
 
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
@@ -108,11 +111,12 @@ public class DBHelper  extends SQLiteOpenHelper {
         return result != 1;
     }
 
+
+
     //insert data into toy table
-    public boolean insertToyData(int toyID, String toyName, float toyPrice, int toyQuantity, int toyCategory, byte[] toyImage){
+    public boolean insertToyData( String toyName, float toyPrice, int toyQuantity, int toyCategory, byte[] toyImage){
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("toyID",toyID);
         contentValues.put("toyName",toyName);
         contentValues.put("toyPrice",toyPrice);
         contentValues.put("toyQuantity",toyQuantity);
@@ -140,7 +144,7 @@ public class DBHelper  extends SQLiteOpenHelper {
     public boolean updateToyCategoryData(int categoryID, String categoryName) {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("categoryID", categoryID);
+//        contentValues.put("categoryID", categoryID);
         contentValues.put("categoryName", categoryName);
         Cursor cursor = DB.rawQuery("Select * from ToyCategory where categoryID = ?", new String[]{String.valueOf(categoryID)});
         if (cursor.getCount() > 0) {
@@ -157,7 +161,10 @@ public class DBHelper  extends SQLiteOpenHelper {
         Cursor cursor = DB.rawQuery("Select * from ToyCategory where categoryID = ?", new String[]{String.valueOf(categoryID)});
         if (cursor.getCount() > 0) {
             long result = DB.delete("ToyCategory", "categoryID = ?", new String[]{String.valueOf(categoryID)});
-            return result != 1;
+            if (result==1)
+                return true;
+            else
+                return false;
         } else {
             return false;
         }
@@ -168,6 +175,25 @@ public class DBHelper  extends SQLiteOpenHelper {
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("Select * from ToyCategory",null);
         return cursor;
+    }
+
+    //return category name when input category id
+    public String categoryName(int id){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from ToyCategory where categoryID = ?",new String[]{String.valueOf(id)});
+        if (cursor.moveToFirst())
+            return cursor.getString(1);
+        else
+            return null;
+    }
+    //return category id when input category name
+    public int categoryId(String name){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from ToyCategory where categoryName = ?",new String[]{name});
+        if (cursor.moveToFirst())
+            return cursor.getInt(0);
+        else
+            return -1;
     }
 
     //update toy table

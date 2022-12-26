@@ -26,7 +26,7 @@ public class Admin extends User{
         */
 
 
-        boolean res=db.insertToyData(toyID, toyName, toyPrice, toyQuantity, toyCategory, toyImage);
+        boolean res=db.insertToyData( toyName, toyPrice, toyQuantity, toyCategory, toyImage);
         if(res)
 //            Toast.makeText(Admin.this,"Toy created successfully", Toast.LENGTH_SHORT).show();
             System.out.println("Toy created successfully"); //its better to make toast message
