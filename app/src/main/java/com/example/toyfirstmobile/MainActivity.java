@@ -11,6 +11,10 @@ import com.example.toyfirstmobile.activity.dashboards.AdminDashboardActivity;
 import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.activity.login.UserLoginActivity;
 import com.example.toyfirstmobile.activity.register.UserRegisterActivity;
+import com.example.toyfirstmobile.db.DBHelper;
+import com.example.toyfirstmobile.model.ShoppingCartItem;
+
+import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -56,6 +60,19 @@ public class MainActivity extends AppCompatActivity {
                 v.getContext().startActivity(intent);
             }
         });
+
+
+
+
+        //test database insert
+//        Vector<ShoppingCartItem> items = new Vector<ShoppingCartItem>();
+//
+//        items.add(new ShoppingCartItem(3,25,68));
+//        items.add(new ShoppingCartItem(3,25,68));
+//
+        DBHelper db = new DBHelper(this);
+        //db.insertUserData("dfsd","fdsfa","dfasfa",false,"fsf","dfsd","0255");
+        db.insertShoppingCartItem(new ShoppingCartItem(2,4,8),1);
 
     }
 

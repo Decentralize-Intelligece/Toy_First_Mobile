@@ -5,22 +5,48 @@ import java.net.URL;
 
 public class ShoppingCartItem implements Cloneable
 {
-    public String itemName;
-    public int itemCost;
-    public int quantity;
-    public URL imageURL;
+    private int id;//holds the shopping cart item id
+    private int toyID;
+    private int quantity;
+    private int shoppingCartID;
+
 
     public ShoppingCartItem()
     {
     }
 
-    public ShoppingCartItem(String itemName, int itemCost,
-                            int quantity, URL descriptionURL)
-    {
-        this.itemName = itemName;
-        this.itemCost = itemCost;
+    public int getToyID() {
+        return toyID;
+    }
+
+    public void setToyID(int toyID) {
+        this.toyID = toyID;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
-        this.imageURL = descriptionURL;
+    }
+
+    public int getShoppingCartID() {
+        return shoppingCartID;
+    }
+
+    public void setShoppingCartID(int shoppingCartID) {
+        this.shoppingCartID = shoppingCartID;
+    }
+
+    public ShoppingCartItem(int toyID,
+                            int quantity, int shoppingCartID)
+    {
+
+        this.toyID =
+        this.quantity = quantity;
+        this.shoppingCartID = shoppingCartID;
+
     }
 
 // The add method is a quick method for combining two similar
@@ -45,10 +71,7 @@ public class ShoppingCartItem implements Cloneable
 // You can store items in a hash table if you implement hashCode. It's
 // always a good idea to do this.
 
-    public int hashCode()
-    {
-        return itemName.hashCode() + itemCost;
-    }
+
 
 // The equals method does something a little dirty here, it only
 // compares the item names and item costs. Technically, this is
@@ -64,23 +87,21 @@ public class ShoppingCartItem implements Cloneable
         ShoppingCartItem otherItem =
                 (ShoppingCartItem) other;
 
-        return (itemName.equals(otherItem.itemName)) &&
-                (itemCost == otherItem.itemCost);
+        return (toyID == (otherItem.toyID));
     }
 
 // Create a copy of this object
 
     public ShoppingCartItem copy()
     {
-        return new ShoppingCartItem(itemName, itemCost,
-                quantity, imageURL);
+        return new ShoppingCartItem(toyID,
+                quantity,shoppingCartID);
     }
 
 // Create a printable version of this object
 
-    public String toString()
-    {
-        return itemName+" cost: "+itemCost+" qty: "+quantity+" desc: "+
-                imageURL;
-    }
+//    public String toString()
+//    {
+//        return itemName+" cost: "+itemCost+" qty: "+quantity+" desc: ";
+//    }
 }
