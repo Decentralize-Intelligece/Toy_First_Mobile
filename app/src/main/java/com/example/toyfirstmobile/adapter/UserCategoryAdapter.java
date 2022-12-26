@@ -1,6 +1,7 @@
 package com.example.toyfirstmobile.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.category.UserCategoryActivity;
+import com.example.toyfirstmobile.activity.toy.UserToyStoreActivity;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
 import com.example.toyfirstmobile.model.Category;
 
@@ -60,6 +62,9 @@ public class UserCategoryAdapter extends RecyclerView.Adapter<UserCategoryAdapte
                     SharedPreferenceController.setCurrentCategory(v.getContext(),name.getText().toString());
                     String currentCat = SharedPreferenceController.getCurrentCategory(v.getContext());
                     Log.d("Hello", "Current cat : " + currentCat);
+                    Intent intent =  new Intent(v.getContext(), UserToyStoreActivity.class);
+                    v.getContext().startActivity(intent);
+
                 }
             });
 

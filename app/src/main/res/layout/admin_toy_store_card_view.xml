@@ -7,7 +7,7 @@
     android:background="#F4F4F4">
 
     <Button
-        android:id="@+id/btnAdminToyUpdate"
+        android:id="@+id/btnAdminToyStoreEdit"
         android:layout_width="74dp"
         android:layout_height="57dp"
         android:backgroundTint="#FE6D40"
@@ -23,7 +23,7 @@
         tools:layout_editor_absoluteX="16dp" />
 
     <Button
-        android:id="@+id/btnAdminToyStore3"
+        android:id="@+id/btnAdminToyStoreDeleteToy"
         android:layout_width="74dp"
         android:layout_height="57dp"
         android:layout_marginStart="2dp"
@@ -35,7 +35,7 @@
         app:cornerRadius="15dp"
         app:icon="@drawable/delete"
         app:iconPadding="0dp"
-        app:layout_constraintStart_toEndOf="@+id/btnAdminToyUpdate"
+        app:layout_constraintStart_toEndOf="@+id/btnAdminToyStoreEdit"
         app:layout_constraintTop_toBottomOf="@+id/imageViewAdminToyImage"
         tools:ignore="MissingConstraints" />
 

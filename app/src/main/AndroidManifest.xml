@@ -40,6 +40,7 @@
         <activity android:name=".activity.dashboards.UserDashboardActivity" />
         <activity android:name=".activity.category.UserCategoryActivity" />
         <activity android:name=".activity.toy.AdminAddToyActivity" />
+        <activity android:name=".activity.toy.UserToyStoreActivity" />
     </application>
 
 </manifest>
