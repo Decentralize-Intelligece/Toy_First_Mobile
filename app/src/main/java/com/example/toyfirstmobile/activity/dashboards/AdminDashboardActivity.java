@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
 import com.example.toyfirstmobile.activity.toy.AdminAddToyActivity;
+import com.example.toyfirstmobile.activity.toy.AdminToyStoreActivity;
 
 public class AdminDashboardActivity extends AppCompatActivity {
     @Override
@@ -32,7 +33,7 @@ public class AdminDashboardActivity extends AppCompatActivity {
         btnAdminAddToys.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(v.getContext(), AdminAddToyActivity.class);
+                Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
                 v.getContext().startActivity(intent);
             }
         });
