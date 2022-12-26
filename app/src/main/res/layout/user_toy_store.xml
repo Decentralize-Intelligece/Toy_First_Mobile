@@ -13,12 +13,12 @@
         android:layout_marginEnd="83dp"
         android:backgroundTint="#FEFEFE"
         android:backgroundTintMode="src_in"
-        android:text="Add Toy"
+        android:text="View Cart"
         android:textAllCaps="false"
         android:textColor="#FD6D40"
         android:textSize="24sp"
         app:cornerRadius="15dp"
-        app:icon="@drawable/add"
+        app:icon="@drawable/cart"
         app:iconPadding="0dp"
         app:iconTint="#FE6D40"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -33,7 +33,7 @@
         android:id="@+id/textView9"
         android:layout_width="207dp"
         android:layout_height="40dp"
-        android:text="Manage Toys"
+        android:text="Category"
         android:textAlignment="center"
         android:textColor="#FE6D40"
         android:textSize="24sp"
@@ -41,7 +41,21 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.144" />
+        app:layout_constraintVertical_bias="0.123" />
+
+    <TextView
+        android:id="@+id/txtUserCurrentCategory"
+        android:layout_width="336dp"
+        android:layout_height="53dp"
+        android:text="Handmade"
+        android:textAlignment="center"
+        android:textColor="#545454"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.18" />
 
     <TextView
         android:id="@+id/textView6"
@@ -59,12 +73,12 @@
         app:layout_constraintVertical_bias="0.212" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewAdminToyStore"
+        android:id="@+id/recyclerViewUserToyStore"
         android:layout_width="385dp"
         android:layout_height="449dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.588" />
+        app:layout_constraintVertical_bias="0.641" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -89,7 +89,9 @@ public class AdminAddToyActivity extends AppCompatActivity {
                 int toyCategory = Integer.parseInt(spinner.getSelectedItem().toString().split("-")[0]);
 
                 Log.d("Hello",toyName + " " + toyPrice + " " + toyQuantity + " " + toyCategory);
-                dbHelper.insertToyData(3,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
+                dbHelper.insertToyData(5,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
+                Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
+                v.getContext().startActivity(intent);
 
             }
         });
@@ -131,7 +133,4 @@ public class AdminAddToyActivity extends AppCompatActivity {
         }
 
     }
-
-
-
 }
