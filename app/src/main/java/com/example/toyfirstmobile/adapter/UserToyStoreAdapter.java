@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.model.ShoppingCart;
+import com.example.toyfirstmobile.model.ShoppingCartItem;
 import com.example.toyfirstmobile.model.ToyData;
 
 import java.util.List;
@@ -38,7 +40,7 @@ public class UserToyStoreAdapter extends RecyclerView.Adapter<UserToyStoreAdapte
     @Override
     public void onBindViewHolder(@NonNull UserToyStoreAdapter.ViewHolder holder, int position) {
         ToyData toy = toyList.get(position);
-        holder.setData(toy.getName(),toy.getCategory(),toy.getToyPrice(),toy.getQuantity(),toy.getImage());
+        holder.setData(toy.getToyID(),toy.getName(),toy.getCategory(),toy.getToyPrice(),toy.getQuantity(),toy.getImage());
     }
 
     @Override
@@ -68,6 +70,7 @@ public class UserToyStoreAdapter extends RecyclerView.Adapter<UserToyStoreAdapte
                 @Override
                 public void onClick(View v) {
                     Log.d("Hello", txtToyName.getText().toString() + " added to cart");
+
                 }
             });
 
@@ -83,12 +86,25 @@ public class UserToyStoreAdapter extends RecyclerView.Adapter<UserToyStoreAdapte
 //            });
         }
 
-        public void setData(String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
+        public void setData(int toyID,String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
             this.txtToyName.setText(name);
             this.txtToyCategory.setText(category+"");
             this.txtToyPrice.setText("LKR " + toyPrice + "");
             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             this.imgToyImage.setImageBitmap(bitmap);
+            this.btnAddToCart.setOnClickListener((new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    ShoppingCart.addItem(new ShoppingCartItem(name,toyID,1,toyPrice));
+                    Log.d("Hello", txtToyName.getText().toString() + " added to cart");
+
+
+                    Log.d("Cartt",ShoppingCart.items.get(ShoppingCart.items.size()-1).toString());
+                    Log.d("Cartt", "Total value of cart:" + String.valueOf(ShoppingCart.total));
+
+                }
+            }));
         }
 
 

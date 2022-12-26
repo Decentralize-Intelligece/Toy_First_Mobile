@@ -22,18 +22,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        ShoppingCart cart = new ShoppingCart();
-        cart.addItem(new ShoppingCartItem(1,3,75,1,45.0f));
-        cart.addItem(new ShoppingCartItem(1,4,75,1,45.0f));
-        cart.removeItem(new ShoppingCartItem(1,3,40,1,45.0f));
-
-        String cost  = "Total cost is "+ ShoppingCart.total;
-
-        Log.d("cart",ShoppingCart.items.get(1).toString());
-        Log.d("cart",cost);
-
-
-
 
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
@@ -81,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         //test database insert
 //        Vector<ShoppingCartItem> items = new Vector<ShoppingCartItem>();
 //
-//        items.add(new ShoppingCartItem(3,25,68));
+      //items.add(new ShoppingCartItem(3,25,68));
 //        items.add(new ShoppingCartItem(3,25,68));
 //
 
