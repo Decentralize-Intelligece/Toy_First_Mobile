@@ -6,12 +6,27 @@ import java.net.URL;
 public class ShoppingCartItem
 {
     private int id;//holds the shopping cart item id
+    private String name;
     private int toyID;
     private int quantity;
     private int shoppingCartID;
     private float cost;
 
+    public ShoppingCartItem( int toyID, int quantity, float cost) {
 
+        this.toyID = toyID;
+        this.quantity = quantity;
+        this.cost = cost;
+    }
+
+
+    public ShoppingCartItem(String name,int toyID, int quantity, float cost) {
+
+        this.name = name;
+        this.toyID = toyID;
+        this.quantity = quantity;
+        this.cost = cost;
+    }
 
     public ShoppingCartItem(int id, int toyID, int quantity, int shoppingCartID, float cost) {
         this.id = id;
@@ -110,6 +125,6 @@ public class ShoppingCartItem
 
     public String toString()
     {
-        return toyID + " " + quantity;
+        return name + " added " + quantity;
     }
 }

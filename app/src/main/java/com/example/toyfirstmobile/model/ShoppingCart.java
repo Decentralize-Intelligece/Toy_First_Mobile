@@ -12,12 +12,12 @@ public class ShoppingCart
 {
 
     public static int id; // ID of the shopping cart
-    public static Vector<ShoppingCartItem> items;	// the items in the cart
+    public static Vector<ShoppingCartItem> items =new Vector<ShoppingCartItem>();;	// the items in the cart
     public static float total;	// the total item cost so far
 
     public ShoppingCart()
     {
-        items = new Vector<ShoppingCartItem>();
+        //items = new Vector<ShoppingCartItem>();
         total = 0;
     }
 
