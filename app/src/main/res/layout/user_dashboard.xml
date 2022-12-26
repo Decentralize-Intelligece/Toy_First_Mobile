@@ -56,7 +56,7 @@
                 tools:ignore="MissingConstraints" />
 
             <Button
-                android:id="@+id/btnAdminCategories2"
+                android:id="@+id/btnUserCart"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"
