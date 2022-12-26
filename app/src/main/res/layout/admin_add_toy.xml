@@ -74,6 +74,20 @@
                     android:layout_height="48dp"
                     android:orientation="horizontal"/>
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgAddedImage"
+                        android:layout_width="131dp"
+                        android:layout_height="131dp"
+                        android:scaleType="centerCrop"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
                 <EditText
                     android:id="@+id/txtToyName"
                     android:layout_width="match_parent"
@@ -128,12 +142,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.942"
                     tools:ignore="MissingConstraints" />
-
-                <ImageView
-                    android:id="@+id/imgAddedImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:srcCompat="@tools:sample/avatars" />
 
             </LinearLayout>
 
