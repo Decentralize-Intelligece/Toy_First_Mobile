@@ -105,7 +105,7 @@ public class ShoppingCart
 
 // getItems returns a copy of all the items in the cart
 
-    public ShoppingCartItem[] getItems()
+    public static ShoppingCartItem[] getItems()
     {
         ShoppingCartItem[] itemArray =
                 new ShoppingCartItem[items.size()];

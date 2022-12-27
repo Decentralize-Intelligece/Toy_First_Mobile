@@ -1,7 +1,9 @@
 package com.example.toyfirstmobile.activity.toy;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.cart.UserCartActivity;
 import com.example.toyfirstmobile.adapter.AdminToyStoreAdapter;
 import com.example.toyfirstmobile.adapter.UserToyStoreAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
@@ -21,10 +24,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserToyStoreActivity extends AppCompatActivity {
-    Button viewCart;
+    Button btnViewCart;
     List<ToyData> toyDataList;
     DBHelper dbHelper = new DBHelper(this);
     TextView txtCategory;
+
 
 
     @Override
@@ -36,6 +40,19 @@ public class UserToyStoreActivity extends AppCompatActivity {
         initRecyclerView();
         txtCategory = (TextView) findViewById(R.id.txtUserCurrentCategory);
         txtCategory.setText(SharedPreferenceController.getCurrentCategory(this));
+        btnViewCart = (Button) findViewById(R.id.btnUserToyStoreViewCart);
+
+
+        btnViewCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =  new Intent(v.getContext(), UserCartActivity.class);
+                v.getContext().startActivity(intent);
+            }
+        });
+
+
+
     }
 
     private void initData() {
