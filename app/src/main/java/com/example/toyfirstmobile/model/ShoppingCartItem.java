@@ -8,6 +8,15 @@ public class ShoppingCartItem
     private int id;//holds the shopping cart item id
     private String name;
     private int toyID;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     private int quantity;
     private int shoppingCartID;
     private float cost;
