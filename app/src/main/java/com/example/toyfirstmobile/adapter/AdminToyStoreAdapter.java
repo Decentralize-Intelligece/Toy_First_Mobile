@@ -17,7 +17,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.toy.AdminToyStoreActivity;
+import com.example.toyfirstmobile.activity.toy.AdminUpdateToyActivity;
 import com.example.toyfirstmobile.db.DBHelper;
+import com.example.toyfirstmobile.db.SharedPreferenceController;
 import com.example.toyfirstmobile.model.ToyData;
 
 import java.util.List;
@@ -79,7 +81,9 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
                 @Override
                 public void onClick(View v) {
                     Log.d("Hello", "edit clicked");
-
+                    SharedPreferenceController.setCurrentToy(v.getContext(), toyID);
+                    Intent intent =  new Intent(v.getContext(), AdminUpdateToyActivity.class);
+                    v.getContext().startActivity(intent);
                 }
             });
 
