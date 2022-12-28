@@ -3,6 +3,7 @@ package com.example.toyfirstmobile.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,7 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
     @Override
     public void onBindViewHolder(@NonNull AdminToyStoreAdapter.ViewHolder holder, int position) {
         ToyData toy = toyList.get(position);
-        holder.setData(toy.getName(),toy.getCategory(),toy.getToyPrice(),toy.getQuantity(),toy.getImage());
+        holder.setData(toy.getToyID(), toy.getName(),toy.getCategory(),toy.getToyPrice(),toy.getQuantity(),toy.getImage());
     }
 
     @Override
@@ -57,6 +58,7 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
         private ImageView imgToyImage;
         private Button btnEditCategory;
         private Button btnDeleteCategory;
+        private int toyID;
 
 
 
@@ -67,6 +69,23 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
             txtToyPrice = itemView.findViewById(R.id.txtAdminToyPrice);
             txtToyQty = itemView.findViewById(R.id.txtAdminQuantity);
             imgToyImage = itemView.findViewById(R.id.imageViewAdminToyImage);
+
+            btnEditCategory = (Button) itemView.findViewById(R.id.btnAdminToyStoreEdit);
+            btnDeleteCategory = (Button) itemView.findViewById(R.id.btnAdminToyStoreDeleteToy);
+
+            btnEditCategory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("Hello", "edit clicked");
+                }
+            });
+
+            btnDeleteCategory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("Hello", "dposition " + toyID);
+                }
+            });
 
             dbHelper = new DBHelper(itemView.getContext());
 
@@ -82,7 +101,8 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
 //            });
         }
 
-        public void setData(String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
+        public void setData(int id, String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
+            toyID = id;
             String categoryName = dbHelper.categoryName(category);
             this.txtToyName.setText(name);
             this.txtToyCategory.setText(  categoryName+"");

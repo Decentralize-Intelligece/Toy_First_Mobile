@@ -23,6 +23,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.db.DBHelper;
@@ -43,17 +44,21 @@ public class AdminAddToyActivity extends AppCompatActivity {
     private ImageView imageView;
     Bitmap imageToStore;
     private ByteArrayOutputStream byteArrayOutputStream;
-    private byte[] imageInByte;
+    private byte[] imageInByte = null;
     private EditText txtToyName;
     private EditText txtPrice;
     private EditText txtQuantity;
     private Spinner spinner;
     private Button btnAddToy;
 
+    Bitmap defualtImage;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+        defualtImage = ((BitmapDrawable) ResourcesCompat.getDrawable(this.getResources(), R.drawable.defaulttoyimage, null)).getBitmap();
+
 
         super.onCreate(savedInstanceState);
         getSupportActionBar().hide();
@@ -97,9 +102,9 @@ public class AdminAddToyActivity extends AppCompatActivity {
 
                 Log.d("Hello",toyName + " " + toyPrice + " " + toyQuantity + " " + toyCategory);
 
-//                if(imageInByte == null){
-//                    setDefaultImage();
-//                }
+                if(imageInByte == null){
+                    setDefaultImage();
+                }
 
                 dbHelper.insertToyData(toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
 
@@ -114,19 +119,12 @@ public class AdminAddToyActivity extends AppCompatActivity {
 
     }
 
-//    protected void setDefaultImage(){
-//        imageView.setBackgroundResource(R.drawable.defaulttoyimage);
-//        imageToStore = ((BitmapDrawable)imageView.getDrawable()).getBitmap();
-////        byteArrayOutputStream = new ByteArrayOutputStream();
-////        imageToStore.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
-////        imageInByte = byteArrayOutputStream.toByteArray();
-//
-//        ByteBuffer byteBuffer = ByteBuffer.allocate(imageToStore.getByteCount());
-//        imageToStore.copyPixelsToBuffer(byteBuffer);
-//        byteBuffer.rewind();
-//        imageInByte= byteBuffer.array();
-//
-//    }
+    protected void setDefaultImage(){
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        defualtImage.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+        imageInByte = byteArrayOutputStream.toByteArray();
+
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
