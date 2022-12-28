@@ -29,11 +29,12 @@ public class SharedPreferenceController {
 
 
     //get current user
-    public static String getCurrentUser(Context context){
+    public static String getCurrentUser(Context context) {
         SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileKey, Context.MODE_PRIVATE);
         return sharedPreferences.getString("current_user", null);
+    }
 
-    public static void setCurrentToy(Context context, int id){
+        public static void setCurrentToy(Context context, int id){
         SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileKey, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("current_toy_id", id);

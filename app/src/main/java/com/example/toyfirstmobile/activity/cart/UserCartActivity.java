@@ -1,9 +1,7 @@
 package com.example.toyfirstmobile.activity.cart;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,15 +16,14 @@ import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.order.UserPlaceOrderActivity;
 import com.example.toyfirstmobile.adapter.UserCartAdapter;
 
-import com.example.toyfirstmobile.activity.cart.model.ShoppingCart;
-import com.example.toyfirstmobile.activity.cart.model.ShoppingCartItem;
+import com.example.toyfirstmobile.model.ShoppingCart;
+import com.example.toyfirstmobile.model.ShoppingCartItem;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
 
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.prefs.Preferences;
 
 //import kotlinx.coroutines.channels.Receive;
 
@@ -50,11 +47,11 @@ public class UserCartActivity extends AppCompatActivity {
         initRecyclerView();
         txtShoppingCartTotal = (TextView) findViewById(R.id.txtCartTotal);
 
-        btnCartOrderCancel = (Button) findViewById(R.id.btnUserCartOrderCancel);
-        btnCartBuy = (Button) findViewById(R.id.btnUserCartBuy);
+        btnCartOrderCancel = (Button) findViewById(R.id.btnCartOrderCancel);
+        btnCartBuy = (Button) findViewById(R.id.btnCartOrderBuy);
         
-        btnCartBuy1 = (Button) findViewById(R.id.btnViewOrderShip);
-        btnCartOrderCancel1 = (Button) findViewById(R.id.btnViewOrderCancel);
+//        btnCartBuy1 = (Button) findViewById(R.id.btnCartOrderBuy);
+//        btnCartOrderCancel1 = (Button) findViewById(R.id.btnCartOrderCancel);
 
         txtShoppingCartTotal.setText("LKR " + ShoppingCart.total);
 

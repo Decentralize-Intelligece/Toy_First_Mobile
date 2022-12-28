@@ -20,7 +20,7 @@ import com.example.toyfirstmobile.activity.toy.AdminToyStoreActivity;
 import com.example.toyfirstmobile.activity.toy.AdminUpdateToyActivity;
 import com.example.toyfirstmobile.db.DBHelper;
 
-import com.example.toyfirstmobile.activity.cart.model.ToyData;
+import com.example.toyfirstmobile.model.ToyData;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
 
 

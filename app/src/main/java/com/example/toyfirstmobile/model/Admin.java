@@ -1,4 +1,4 @@
-package com.example.toyfirstmobile.activity.cart.model;
+package com.example.toyfirstmobile.model;
 
 import android.database.Cursor;
 

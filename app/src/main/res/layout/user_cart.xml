@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btnViewOrderShip"
+        android:id="@+id/btnCartOrderBuy"
         android:layout_width="134dp"
         android:layout_height="69dp"
         android:backgroundTint="#FD6D40"
@@ -28,7 +28,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/btnViewOrderCancel"
+        android:id="@+id/btnCartOrderCancel"
         android:layout_width="169dp"
         android:layout_height="69dp"
         android:backgroundTint="#FEFEFE"

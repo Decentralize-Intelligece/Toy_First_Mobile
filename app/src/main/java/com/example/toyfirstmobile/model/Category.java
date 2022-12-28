@@ -1,4 +1,4 @@
-package com.example.toyfirstmobile.activity.cart.model;
+package com.example.toyfirstmobile.model;
 
 public class Category {
     private int id;
