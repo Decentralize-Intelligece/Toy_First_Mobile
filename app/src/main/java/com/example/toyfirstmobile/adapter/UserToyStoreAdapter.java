@@ -92,7 +92,9 @@ public class UserToyStoreAdapter extends RecyclerView.Adapter<UserToyStoreAdapte
 
         public void setData(int toyID,String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
             this.txtToyName.setText(name);
-            this.txtToyCategory.setText(dbHelper.categoryName(category)+"");
+            String categoryName = dbHelper.categoryName(category);
+            if(categoryName == null){ categoryName = "Unlisted"; }
+            this.txtToyCategory.setText(categoryName+"");
             this.txtToyPrice.setText("LKR " + toyPrice + "");
             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
             this.imgToyImage.setImageBitmap(bitmap);

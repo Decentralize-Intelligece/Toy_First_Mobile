@@ -1,8 +1,10 @@
 package com.example.toyfirstmobile.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +16,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.toy.AdminToyStoreActivity;
+import com.example.toyfirstmobile.activity.toy.AdminUpdateToyActivity;
 import com.example.toyfirstmobile.db.DBHelper;
+
 import com.example.toyfirstmobile.activity.cart.model.ToyData;
+import com.example.toyfirstmobile.db.SharedPreferenceController;
+
+
 
 import java.util.List;
 
@@ -40,7 +48,7 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
     @Override
     public void onBindViewHolder(@NonNull AdminToyStoreAdapter.ViewHolder holder, int position) {
         ToyData toy = toyList.get(position);
-        holder.setData(toy.getName(),toy.getCategory(),toy.getToyPrice(),toy.getQuantity(),toy.getImage());
+        holder.setData(toy.getToyID(), toy.getName(),toy.getCategory(),toy.getToyPrice(),toy.getQuantity(),toy.getImage());
     }
 
     @Override
@@ -57,6 +65,7 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
         private ImageView imgToyImage;
         private Button btnEditCategory;
         private Button btnDeleteCategory;
+        private int toyID;
 
 
 
@@ -67,6 +76,28 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
             txtToyPrice = itemView.findViewById(R.id.txtAdminToyPrice);
             txtToyQty = itemView.findViewById(R.id.txtAdminQuantity);
             imgToyImage = itemView.findViewById(R.id.imageViewAdminToyImage);
+
+            btnEditCategory = (Button) itemView.findViewById(R.id.btnAdminToyStoreEdit);
+            btnDeleteCategory = (Button) itemView.findViewById(R.id.btnAdminToyStoreDeleteToy);
+
+            btnEditCategory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("Hello", "edit clicked");
+                    SharedPreferenceController.setCurrentToy(v.getContext(), toyID);
+                    Intent intent =  new Intent(v.getContext(), AdminUpdateToyActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
+
+            btnDeleteCategory.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // TODO write method to delete toys -> input toyID to delete
+                    Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
 
             dbHelper = new DBHelper(itemView.getContext());
 
@@ -82,8 +113,10 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
 //            });
         }
 
-        public void setData(String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
+        public void setData(int id, String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
+            toyID = id;
             String categoryName = dbHelper.categoryName(category);
+            if(categoryName == null){ categoryName = "Unlisted"; }
             this.txtToyName.setText(name);
             this.txtToyCategory.setText(  categoryName+"");
             this.txtToyQty.setText("Quantity : "+toyQuantity + "");

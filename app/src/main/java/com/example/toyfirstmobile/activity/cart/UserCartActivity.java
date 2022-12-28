@@ -17,10 +17,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.order.UserPlaceOrderActivity;
 import com.example.toyfirstmobile.adapter.UserCartAdapter;
+
 import com.example.toyfirstmobile.activity.cart.model.ShoppingCart;
 import com.example.toyfirstmobile.activity.cart.model.ShoppingCartItem;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
+
 
 import java.util.Arrays;
 import java.util.List;
@@ -47,9 +49,13 @@ public class UserCartActivity extends AppCompatActivity {
         cartItems = Arrays.asList(ShoppingCart.getItems());
         initRecyclerView();
         txtShoppingCartTotal = (TextView) findViewById(R.id.txtCartTotal);
-        btnCartBuy = (Button) findViewById(R.id.btnUserCartBuy);
+
         btnCartOrderCancel = (Button) findViewById(R.id.btnUserCartOrderCancel);
         btnCartBuy = (Button) findViewById(R.id.btnUserCartBuy);
+        
+        btnCartBuy1 = (Button) findViewById(R.id.btnViewOrderShip);
+        btnCartOrderCancel1 = (Button) findViewById(R.id.btnViewOrderCancel);
+
         txtShoppingCartTotal.setText("LKR " + ShoppingCart.total);
 
         btnCartBuy.setOnClickListener(new View.OnClickListener() {

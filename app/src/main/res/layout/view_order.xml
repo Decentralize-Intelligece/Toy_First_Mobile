@@ -7,24 +7,24 @@
 
     <Button
         android:id="@+id/btnViewOrderShip"
-        android:layout_width="134dp"
-        android:layout_height="69dp"
+        android:layout_width="146dp"
+        android:layout_height="71dp"
         android:backgroundTint="#FD6D40"
         android:backgroundTintMode="src_in"
-        android:text="Buy"
+        android:text="Ship"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:cornerRadius="15dp"
-        app:icon="@drawable/add"
+        app:icon="@drawable/ship"
         app:iconPadding="0dp"
         app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.818"
+        app:layout_constraintHorizontal_bias="0.166"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901"
+        app:layout_constraintVertical_bias="0.94"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -43,14 +43,14 @@
         app:iconTint="#FE6D40"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintHorizontal_bias="0.83"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901"
+        app:layout_constraintVertical_bias="0.938"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/txtIName"
+        android:id="@+id/txtINameOrder"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="4dp"
@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:id="@+id/txtIName2"
+        android:id="@+id/txtIQtyOrder"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="4dp"
@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:id="@+id/txtIName3"
+        android:id="@+id/txtIPriceOrder"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="4dp"
@@ -101,11 +101,11 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/txtOrderOrder"
         android:layout_width="177dp"
         android:layout_height="54dp"
         android:layout_marginBottom="532dp"
-        android:text="Cart"
+        android:text="Order"
         android:textAlignment="center"
         android:textColor="#FE6D40"
         android:textSize="34sp"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.212" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/txtOrderTot"
         android:layout_width="100dp"
         android:layout_height="59dp"
         android:text="Total"
@@ -132,7 +132,7 @@
         app:layout_constraintVertical_bias="0.743" />
 
     <TextView
-        android:id="@+id/txtCartTotal"
+        android:id="@+id/txtViewOrderTotal"
         android:layout_width="192dp"
         android:layout_height="59dp"
         android:text="LKR 150"
@@ -148,7 +148,7 @@
         app:layout_constraintVertical_bias="0.8" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewUserCart"
+        android:id="@+id/recyclerViewViewOrder"
         android:layout_width="356dp"
         android:layout_height="338dp"
         app:layout_constraintBottom_toBottomOf="parent"
