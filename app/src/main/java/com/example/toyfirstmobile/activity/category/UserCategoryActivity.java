@@ -1,6 +1,7 @@
 package com.example.toyfirstmobile.activity.category;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.text.InputType;
@@ -16,6 +17,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.cart.UserCartActivity;
+import com.example.toyfirstmobile.activity.toy.UserToyStoreActivity;
 import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
 import com.example.toyfirstmobile.adapter.UserCategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
@@ -39,8 +42,6 @@ public class UserCategoryActivity extends AppCompatActivity {
         initData();
         initRecyclerView();
 //        Button btnNewCategory = (Button) findViewById(R.id.btnGetAllCategories);
-
-
         Button allCategoryButton = (Button) findViewById(R.id.btnGetAllCategories);
         allCategoryButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,6 +50,8 @@ public class UserCategoryActivity extends AppCompatActivity {
                 SharedPreferenceController.setCurrentCategory(UserCategoryActivity.this,"All");
                 String currentCat = SharedPreferenceController.getCurrentCategory(UserCategoryActivity.this);
                 Log.d("Hello", "Current cat : " + currentCat);
+                Intent intent =  new Intent(v.getContext(), UserToyStoreActivity.class);
+                v.getContext().startActivity(intent);
             }
         });
 

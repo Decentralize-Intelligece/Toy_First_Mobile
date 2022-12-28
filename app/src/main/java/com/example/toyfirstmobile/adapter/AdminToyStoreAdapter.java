@@ -22,7 +22,8 @@ import java.util.List;
 public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdapter.ViewHolder>{
     private List<ToyData> toyList;
     private LayoutInflater mInflater;
-//    DBHelper dbHelper = new DBHelper(new C);
+//    View mView;
+    DBHelper dbHelper;
 
     public AdminToyStoreAdapter(Context context, List<ToyData> toyList) {
         this.mInflater = LayoutInflater.from(context);
@@ -67,6 +68,8 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
             txtToyQty = itemView.findViewById(R.id.txtAdminQuantity);
             imgToyImage = itemView.findViewById(R.id.imageViewAdminToyImage);
 
+            dbHelper = new DBHelper(itemView.getContext());
+
             itemView.setOnClickListener((v -> {
 //                Log.d("Hello", "onclick : position : " + name);
             }));
@@ -80,8 +83,9 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
         }
 
         public void setData(String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
+            String categoryName = dbHelper.categoryName(category);
             this.txtToyName.setText(name);
-            this.txtToyCategory.setText(  category+"");
+            this.txtToyCategory.setText(  categoryName+"");
             this.txtToyQty.setText("Quantity : "+toyQuantity + "");
             this.txtToyPrice.setText("LKR " + toyPrice + "");
             Bitmap bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
