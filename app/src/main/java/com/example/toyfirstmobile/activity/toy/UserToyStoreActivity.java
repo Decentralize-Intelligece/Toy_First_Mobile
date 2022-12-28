@@ -56,8 +56,12 @@ public class UserToyStoreActivity extends AppCompatActivity {
     }
 
     private void initData() {
+
+        String currentCat = SharedPreferenceController.getCurrentCategory(UserToyStoreActivity.this);
+        int currentCatID = dbHelper.categoryId(currentCat);
+
         toyDataList = new ArrayList<>();
-        Cursor cursor = dbHelper.getToyData();
+        Cursor cursor = dbHelper.getToyDataOnCategory(currentCatID);
         int idID = cursor.getColumnIndex("toyID");
         int idName = cursor.getColumnIndex("toyName");
         int idPrice = cursor.getColumnIndex("toyPrice");

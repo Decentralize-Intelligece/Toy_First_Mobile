@@ -238,6 +238,18 @@ public class DBHelper  extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor getToyDataOnCategory(int category){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor;
+        if(category == -1){
+            cursor = DB.rawQuery("Select * from Toy",null);
+        }else {
+            cursor = DB.rawQuery("Select * from Toy where toyCategory = ?",new String[]{String.valueOf(category)});
+        }
+
+        return cursor;
+    }
+
 
 
 
