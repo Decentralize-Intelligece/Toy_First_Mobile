@@ -17,7 +17,7 @@ import com.example.toyfirstmobile.activity.cart.UserCartActivity;
 import com.example.toyfirstmobile.adapter.UserToyStoreAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
-import com.example.toyfirstmobile.activity.cart.model.ToyData;
+import com.example.toyfirstmobile.model.ToyData;
 
 import java.util.ArrayList;
 import java.util.List;

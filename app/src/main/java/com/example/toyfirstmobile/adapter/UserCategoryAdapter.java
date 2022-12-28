@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.toy.UserToyStoreActivity;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
-import com.example.toyfirstmobile.activity.cart.model.Category;
+import com.example.toyfirstmobile.model.Category;
 
 import java.util.List;
 

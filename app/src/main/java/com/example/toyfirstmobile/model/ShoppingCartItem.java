@@ -1,4 +1,4 @@
-package com.example.toyfirstmobile.activity.cart.model;// This class contains data for an individual item in a
+package com.example.toyfirstmobile.model;// This class contains data for an individual item in a
 // shopping cart.
 
 public class ShoppingCartItem
