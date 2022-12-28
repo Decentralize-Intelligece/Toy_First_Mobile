@@ -1,29 +1,23 @@
 package com.example.toyfirstmobile.activity.category;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
-import com.example.toyfirstmobile.activity.cart.UserCartActivity;
 import com.example.toyfirstmobile.activity.toy.UserToyStoreActivity;
-import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
 import com.example.toyfirstmobile.adapter.UserCategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
-import com.example.toyfirstmobile.model.Category;
+import com.example.toyfirstmobile.activity.cart.model.Category;
 
 import java.util.ArrayList;
 import java.util.List;

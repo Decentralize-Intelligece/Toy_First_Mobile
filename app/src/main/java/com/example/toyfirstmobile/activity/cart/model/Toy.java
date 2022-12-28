@@ -1,19 +1,18 @@
-package com.example.toyfirstmobile.model;
+package com.example.toyfirstmobile.activity.cart.model;
 
-import android.graphics.Bitmap;
+public class Toy {
 
-public class ToyData {
     private int toyID;
     private String name;
-    private float toyPrice;
     private int quantity;
-    private int category;
-    private byte[] image;
+    private String category;
+    private String image;
 
-    public ToyData(int toyID, String name, float toyPrice, int quantity, int category, byte[] image) {
+    public Toy(){}
+
+    public Toy(int toyID, String name, int quantity, String category, String image) {
         this.toyID = toyID;
         this.name = name;
-        this.toyPrice = toyPrice;
         this.quantity = quantity;
         this.category = category;
         this.image = image;
@@ -35,14 +34,6 @@ public class ToyData {
         this.name = name;
     }
 
-    public float getToyPrice() {
-        return toyPrice;
-    }
-
-    public void setToyPrice(float toyPrice) {
-        this.toyPrice = toyPrice;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -51,19 +42,19 @@ public class ToyData {
         this.quantity = quantity;
     }
 
-    public int getCategory() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCategory(int category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 }

@@ -36,6 +36,7 @@
         <activity android:name=".activity.toy.UserToyStoreActivity" />
         <activity android:name=".activity.toy.AdminUpdateToyActivity" />
         <activity android:name=".activity.cart.UserCartActivity" android:noHistory="true" />
+        <activity android:name=".activity.order.UserPlaceOrderActivity" />
     </application>
 
 </manifest>

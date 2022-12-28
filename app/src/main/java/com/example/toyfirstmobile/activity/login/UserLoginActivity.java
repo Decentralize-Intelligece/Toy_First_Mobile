@@ -1,12 +1,18 @@
 package com.example.toyfirstmobile.activity.login;
+import com.example.toyfirstmobile.MainActivity;
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
 import com.example.toyfirstmobile.activity.dashboards.AdminDashboardActivity;
 import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.db.DBHelper;
+import com.example.toyfirstmobile.db.SharedPreferenceController;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -51,8 +57,9 @@ public class UserLoginActivity extends AppCompatActivity {
                                 Log.d("UserLoginActivity", "password correct");
                                 //go to the user home page
                                 if (res.getInt(4) == 0) {
-                                    Log.d("UserLoginActivity", "user");
                                     Intent intent = new Intent(v.getContext(), UserDashboardActivity.class);
+                                    //save username using shared preferences
+                                    SharedPreferenceController.setCurrentUser(v.getContext(), res.getString(2));
                                     v.getContext().startActivity(intent);
                                 } else {
                                     Log.d("UserLoginActivity", "admin");
@@ -62,11 +69,16 @@ public class UserLoginActivity extends AppCompatActivity {
                             }
                         } else {
                             Log.d("UserLoginActivity", "password incorrect");
+//                            ((UserLoginActivity)v.getContext()).finish();
+//                            Intent intent = new Intent(v.getContext(), MainActivity.class);
+//                            v.getContext().startActivity(intent);
                         }
                     }
+
                     res.close();
                     dbHelper.close();
                 }
+
             });
         }
 }

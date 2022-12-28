@@ -1,7 +1,6 @@
-package com.example.toyfirstmobile.model;
+package com.example.toyfirstmobile.activity.cart.model;
 
 
-import java.net.*;
 import java.util.*;
 
 // This class is a simple container of shopping cart items.

@@ -1,4 +1,4 @@
-package com.example.toyfirstmobile.model;
+package com.example.toyfirstmobile.activity.cart.model;
 
 import java.util.Date;
 
