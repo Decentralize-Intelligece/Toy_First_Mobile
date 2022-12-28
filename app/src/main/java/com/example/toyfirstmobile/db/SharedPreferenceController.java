@@ -14,9 +14,23 @@ public class SharedPreferenceController {
         editor.apply();
     }
 
+    //set current user
+    public static void setCurrentUser(Context context, String user){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileKey, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("current_user", user);
+        editor.apply();
+    }
+
     public static String getCurrentCategory(Context context){
         SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileKey, Context.MODE_PRIVATE);
         return sharedPreferences.getString("current_category", null);
+    }
+
+    //get current user
+    public static String getCurrentUser(Context context){
+        SharedPreferences sharedPreferences = context.getSharedPreferences(preferenceFileKey, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("current_user", null);
     }
 
 

@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
-import com.example.toyfirstmobile.model.Category;
+import com.example.toyfirstmobile.activity.cart.model.Category;
 
 import java.util.ArrayList;
 import java.util.List;

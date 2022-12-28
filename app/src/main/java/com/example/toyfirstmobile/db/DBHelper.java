@@ -5,14 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.graphics.Bitmap;
-import android.util.Log;
-
-import com.example.toyfirstmobile.model.ShoppingCartItem;
-
-import java.util.Vector;
-
-import com.example.toyfirstmobile.adapter.AdminCategoryAdapter;
 
 public class DBHelper  extends SQLiteOpenHelper {
     public DBHelper(Context context) {
@@ -38,10 +30,10 @@ public class DBHelper  extends SQLiteOpenHelper {
             //create toy table primary key is toyID, with columns toyID, toyName, toyPrice, toyQuantity, toyCategory as foreign key from category table, toyImage
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Toy(toyID INTEGER PRIMARY KEY AUTOINCREMENT, toyName TEXT(20) NOT NULL, toyPrice REAL(6) NOT NULL, toyQuantity INTEGER(4) NOT NULL, toyCategory INTEGER(4) NOT NULL, toyImage BLOB, FOREIGN KEY (toyCategory) REFERENCES ToyCategory(categoryID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
 
-            //create order table primary key is orderID, with columns orderID, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
+            //create order table  with columns orderID auto increment for different username, username, toyId as foreign key from toy table, orderStatus, orderQuantity, orderDate
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Orders(orderID INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT(20) NOT NULL, toyID INTEGER(4) NOT NULL, orderStatus TEXT(20) NOT NULL, orderQuantity INTEGER(4) NOT NULL, orderDate TEXT(20) NOT NULL, FOREIGN KEY (toyID) REFERENCES Toy(toyID) ON DELETE CASCADE ON UPDATE CASCADE ) ");
 
-
-            }
+        }
 
         catch(Exception e){
             e.printStackTrace();
@@ -52,26 +44,7 @@ public class DBHelper  extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-//        sqLiteDatabase.execSQL("drop Table if exists Admin");
-//        sqLiteDatabase.execSQL("drop Table if exists User");
-        //add new column to user table
-//        sqLiteDatabase.execSQL("ALTER TABLE User ADD COLUMN email TEXT(40) NOT NULL");
-//        sqLiteDatabase.execSQL("drop Table if exists ToyCategory");
-//        sqLiteDatabase.execSQL("drop Table if exists Toy");
-//        sqLiteDatabase.execSQL("drop Table if exists Orders");
     }
-
-    //not need this method. because we don't need to insert data into admin table.
-//    public boolean insertAdminData(int adminID, String adminName, String adminPassword, boolean isAdmin){
-//        SQLiteDatabase DB = this.getWritableDatabase();
-//        ContentValues contentValues = new ContentValues();
-//        contentValues.put("adminID",adminID);
-//        contentValues.put("adminName",adminName);
-//        contentValues.put("adminPassword",adminPassword);
-//        contentValues.put("isAdmin",isAdmin);
-//        long result =DB.insert("Admin",null,contentValues);
-//        return result != 1;
-//    }
 
     //insert data into user table
     public boolean insertUserData(String email, String userName, String userPassword, boolean isAdmin, String Name, String Address, String Phone){
@@ -120,20 +93,6 @@ public class DBHelper  extends SQLiteOpenHelper {
         contentValues.put("toyCategory",toyCategory);
         contentValues.put("toyImage",toyImage);
         long result =DB.insert("Toy",null,contentValues);
-        return result != 1;
-    }
-
-    //insert data into order table
-    public boolean insertOrderData(int orderID, String userName, int toyID, String orderStatus, int orderQuantity, String orderDate){
-        SQLiteDatabase DB = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("orderID",orderID);
-        contentValues.put("userName",userName);
-        contentValues.put("toyID",toyID);
-        contentValues.put("orderStatus",orderStatus);
-        contentValues.put("orderQuantity",orderQuantity);
-        contentValues.put("orderDate",orderDate);
-        long result =DB.insert("Orders",null,contentValues);
         return result != 1;
     }
 
@@ -250,11 +209,21 @@ public class DBHelper  extends SQLiteOpenHelper {
         return cursor;
     }
 
-
-
-
-
+    //add order
+    public boolean addOrder(String userName, int toyID, String orderStatus, int orderQuantity, String orderDate){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+//        contentValues.put("orderID",orderID);
+        contentValues.put("userName",userName);
+        contentValues.put("toyID",toyID);
+        contentValues.put("orderStatus",orderStatus);
+        contentValues.put("orderQuantity",orderQuantity);
+        contentValues.put("orderDate",orderDate);
+        long result =DB.insert("Orders",null,contentValues);
+        return result != 1;
     }
+
+}
 
 
 

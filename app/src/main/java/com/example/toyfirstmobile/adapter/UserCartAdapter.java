@@ -2,12 +2,8 @@ package com.example.toyfirstmobile.adapter;
 
 import static android.app.PendingIntent.getActivity;
 
-import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +16,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.cart.UserCartActivity;
-import com.example.toyfirstmobile.model.ShoppingCart;
-import com.example.toyfirstmobile.model.ShoppingCartItem;
-import com.example.toyfirstmobile.model.ToyData;
+import com.example.toyfirstmobile.activity.cart.model.ShoppingCart;
+import com.example.toyfirstmobile.activity.cart.model.ShoppingCartItem;
 
 import java.util.List;
 

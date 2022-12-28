@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.db.DBHelper;
-import com.example.toyfirstmobile.model.ShoppingCart;
-import com.example.toyfirstmobile.model.ShoppingCartItem;
-import com.example.toyfirstmobile.model.ToyData;
+import com.example.toyfirstmobile.activity.cart.model.ShoppingCart;
+import com.example.toyfirstmobile.activity.cart.model.ShoppingCartItem;
+import com.example.toyfirstmobile.activity.cart.model.ToyData;
 
 import java.util.List;
 

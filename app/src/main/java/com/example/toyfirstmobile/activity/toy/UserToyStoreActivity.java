@@ -14,11 +14,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.cart.UserCartActivity;
-import com.example.toyfirstmobile.adapter.AdminToyStoreAdapter;
 import com.example.toyfirstmobile.adapter.UserToyStoreAdapter;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
-import com.example.toyfirstmobile.model.ToyData;
+import com.example.toyfirstmobile.activity.cart.model.ToyData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,8 +67,6 @@ public class UserToyStoreActivity extends AppCompatActivity {
         int idQty = cursor.getColumnIndex("toyQuantity");
         int idCategory = cursor.getColumnIndex("toyCategory");
         int idImage = cursor.getColumnIndex("toyImage");
-
-
 
         for(cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()){
             toyDataList.add(new ToyData(

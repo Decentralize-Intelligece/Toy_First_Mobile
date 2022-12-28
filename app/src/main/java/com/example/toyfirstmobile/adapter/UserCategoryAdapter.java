@@ -12,10 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
-import com.example.toyfirstmobile.activity.category.UserCategoryActivity;
 import com.example.toyfirstmobile.activity.toy.UserToyStoreActivity;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
-import com.example.toyfirstmobile.model.Category;
+import com.example.toyfirstmobile.activity.cart.model.Category;
 
 import java.util.List;
 

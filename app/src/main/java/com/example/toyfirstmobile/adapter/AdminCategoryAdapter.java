@@ -3,7 +3,6 @@ package com.example.toyfirstmobile.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,17 +13,13 @@ import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.toyfirstmobile.MainActivity;
 import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
-import com.example.toyfirstmobile.activity.dashboards.AdminDashboardActivity;
 import com.example.toyfirstmobile.db.DBHelper;
-import com.example.toyfirstmobile.model.Category;
+import com.example.toyfirstmobile.activity.cart.model.Category;
 import com.example.toyfirstmobile.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AdminCategoryAdapter extends RecyclerView.Adapter<AdminCategoryAdapter.ViewHolder> {
