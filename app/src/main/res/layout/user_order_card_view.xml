@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtAdminOrderDate"
+        android:id="@+id/txtUserOrderDate"
         android:layout_width="207dp"
         android:layout_height="37dp"
         android:layout_marginTop="88dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtAdminOrdersOrderID"
+        android:id="@+id/txtUserOrdersOrderID"
         android:layout_width="207dp"
         android:layout_height="37dp"
         android:layout_marginTop="40dp"
@@ -50,7 +50,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtAdminOrderStatus"
+        android:id="@+id/txtUserOrderStatus"
         android:layout_width="217dp"
         android:layout_height="49dp"
         android:layout_marginTop="16dp"
@@ -65,19 +65,19 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnAdminOrderProcess"
+        android:id="@+id/btnUserOrderView"
         tools:ignore="MissingConstraints"
         android:layout_width="204dp"
         android:layout_height="68dp"
         android:layout_marginTop="52dp"
         android:backgroundTint="#FE6D40"
         android:backgroundTintMode="src_in"
-        android:text="Process"
+        android:text="View"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:cornerRadius="20dp"
-        app:icon="@drawable/process"
+        app:icon="@drawable/view"
         app:iconPadding="0dp"
         app:iconSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
