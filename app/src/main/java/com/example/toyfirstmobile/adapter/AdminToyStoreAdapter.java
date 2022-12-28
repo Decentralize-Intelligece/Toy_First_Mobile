@@ -113,6 +113,7 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
         public void setData(int id, String name, int category, float toyPrice, int toyQuantity, byte[] byteArray){
             toyID = id;
             String categoryName = dbHelper.categoryName(category);
+            if(categoryName == null){ categoryName = "Unlisted"; }
             this.txtToyName.setText(name);
             this.txtToyCategory.setText(  categoryName+"");
             this.txtToyQty.setText("Quantity : "+toyQuantity + "");
