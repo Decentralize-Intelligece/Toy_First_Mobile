@@ -1,6 +1,7 @@
 package com.example.toyfirstmobile.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Log;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.toy.AdminToyStoreActivity;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.ToyData;
 
@@ -77,13 +79,16 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
                 @Override
                 public void onClick(View v) {
                     Log.d("Hello", "edit clicked");
+
                 }
             });
 
             btnDeleteCategory.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Log.d("Hello", "dposition " + toyID);
+                    // TODO write method to delete toys -> input toyID to delete
+                    Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
+                    v.getContext().startActivity(intent);
                 }
             });
 
