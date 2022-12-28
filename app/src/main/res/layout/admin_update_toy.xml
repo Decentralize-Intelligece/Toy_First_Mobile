@@ -24,7 +24,7 @@
                 android:layout_height="0dp"
                 android:layout_marginTop="44dp"
                 android:layout_marginBottom="532dp"
-                android:text="Add Toy"
+                android:text="Edit Toy"
                 android:textAlignment="center"
                 android:textColor="#FE6D40"
                 android:textSize="34sp"

@@ -1,6 +1,7 @@
 package com.example.toyfirstmobile.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -13,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
@@ -94,8 +96,37 @@ public class AdminToyStoreAdapter extends RecyclerView.Adapter<AdminToyStoreAdap
                 @Override
                 public void onClick(View v) {
                     // TODO write method to delete toys -> input toyID to delete
-                    Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
-                    v.getContext().startActivity(intent);
+
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(itemView.getContext());
+                    builder1.setMessage("Confirm delete !");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "Delete",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dbHelper.deleteToyData(toyID);
+                                    Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
+                                    v.getContext().startActivity(intent);
+                                    dialog.cancel();
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "Cancel",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.cancel();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+
+
+
+
+
                 }
             });
 

@@ -118,6 +118,7 @@ public class AdminUpdateToyActivity extends AppCompatActivity {
 
 //                dbHelper.insertToyData(toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
                 // TODO -> update toy function
+                dbHelper.updateToyData(currentToyId,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
 
                 //dbHelper.insertToyData(5,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
                 Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
