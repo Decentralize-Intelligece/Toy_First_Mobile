@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.adapter.UserCartAdapter;
-import com.example.toyfirstmobile.adapter.UserToyStoreAdapter;
 import com.example.toyfirstmobile.model.ShoppingCart;
 import com.example.toyfirstmobile.model.ShoppingCartItem;
 
@@ -38,8 +37,8 @@ public class UserCartActivity extends AppCompatActivity {
         cartItems = Arrays.asList(ShoppingCart.getItems());
         initRecyclerView();
         txtShoppingCartTotal = (TextView) findViewById(R.id.txtCartTotal);
-        btnCartBuy = (Button) findViewById(R.id.btnUserCartBuy);
-        btnCartOrderCancel = (Button) findViewById(R.id.btnUserCartOrderCancel);
+        btnCartBuy = (Button) findViewById(R.id.btnViewOrderShip);
+        btnCartOrderCancel = (Button) findViewById(R.id.btnViewOrderCancel);
 
         txtShoppingCartTotal.setText("LKR " + ShoppingCart.total);
 

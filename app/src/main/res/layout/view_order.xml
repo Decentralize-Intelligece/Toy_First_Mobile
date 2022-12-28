@@ -50,7 +50,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/txtIName"
+        android:id="@+id/txtINameOrder"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="4dp"
@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:id="@+id/txtIName2"
+        android:id="@+id/txtIQtyOrder"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="4dp"
@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:id="@+id/txtIName3"
+        android:id="@+id/txtIPriceOrder"
         android:layout_width="101dp"
         android:layout_height="39dp"
         android:layout_marginStart="4dp"
@@ -101,11 +101,11 @@
         app:layout_constraintVertical_bias="0.166" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/txtOrderOrder"
         android:layout_width="177dp"
         android:layout_height="54dp"
         android:layout_marginBottom="532dp"
-        android:text="Cart"
+        android:text="Order"
         android:textAlignment="center"
         android:textColor="#FE6D40"
         android:textSize="34sp"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="0.212" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/txtOrderTot"
         android:layout_width="100dp"
         android:layout_height="59dp"
         android:text="Total"
