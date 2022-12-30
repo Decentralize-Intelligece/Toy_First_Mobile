@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,10 +53,15 @@ public class UserLoginActivity extends AppCompatActivity {
                     }
                     if (res.getCount() == 0) {
                         Log.d("UserLoginActivity", "No data");
+                        Toast.makeText(getApplicationContext(),"Invalid credentials",Toast.LENGTH_SHORT).show();
+                        Log.d("UserLoginActivity", "password incorrect");
+                        txtUserName.setText("");
+                        txtPassword.setText("");
                     } else {
                         if (res.moveToFirst()) {
                             if (res.getString(3).equals(password)) {
                                 Log.d("UserLoginActivity", "password correct");
+                                Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_SHORT).show();
                                 //go to the user home page
                                 if (res.getInt(4) == 0) {
                                     Intent intent = new Intent(v.getContext(), UserDashboardActivity.class);
@@ -69,7 +75,10 @@ public class UserLoginActivity extends AppCompatActivity {
                                 }
                             }
                         } else {
+                            Toast.makeText(getApplicationContext(),"Credentials do not match",Toast.LENGTH_SHORT).show();
                             Log.d("UserLoginActivity", "password incorrect");
+                            txtUserName.setText("");
+                            txtPassword.setText("");
 //                            ((UserLoginActivity)v.getContext()).finish();
 //                            Intent intent = new Intent(v.getContext(), MainActivity.class);
 //                            v.getContext().startActivity(intent);
