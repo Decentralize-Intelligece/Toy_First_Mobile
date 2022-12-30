@@ -93,7 +93,7 @@ public class UserRegisterActivity extends AppCompatActivity {
 
                 else{
                     Toast.makeText(getApplicationContext(),"Registration successful",Toast.LENGTH_SHORT).show();
-                    dbHelper.insertUserData(email,userName, password,false,fName + " " + lName,address1 + ", " + address2 + ", " + address3, mobile);
+                    dbHelper.insertUserData(email,userName, password,false,fName , lName,address1 ,address2 , address3, mobile);
                 }
 
 

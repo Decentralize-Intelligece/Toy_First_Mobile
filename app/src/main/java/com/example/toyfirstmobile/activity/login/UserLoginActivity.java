@@ -35,17 +35,18 @@ public class UserLoginActivity extends AppCompatActivity {
             btnLogin.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    EditText txtEmail = (EditText) findViewById(R.id.editTextEmail);
-                    String email = txtEmail.getText().toString();
+                    EditText txtUserName = (EditText) findViewById(R.id.editTextUserName);
+                    String userName = txtUserName.getText().toString();
                     //compare password is correct
                     EditText txtPassword = (EditText) findViewById(R.id.editTextPassword);
                     String password = txtPassword.getText().toString();
-                    Log.d("email", email);
+                    Log.d("username", userName);
                     Log.d("password", password);
 
                     Cursor res = null;
                     try {
-                        res = dbHelper.getUserDataByEmail(email);
+//                        res = dbHelper.getUserDataByEmail(userName);
+                        res = dbHelper.getUserDataByUserName(userName);
                     } catch (Exception e) {
                         Log.d("error", e.getMessage());
                     }

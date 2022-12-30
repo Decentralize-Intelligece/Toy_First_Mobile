@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
 import com.example.toyfirstmobile.R;
+//import com.example.toyfirstmobile.activity.model.ToyData;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.db.SharedPreferenceController;
 import com.example.toyfirstmobile.model.ToyData;

@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,7 +50,7 @@ public class UserCartActivity extends AppCompatActivity {
 
         btnCartOrderCancel = (Button) findViewById(R.id.btnCartOrderCancel);
         btnCartBuy = (Button) findViewById(R.id.btnCartOrderBuy);
-        
+
 //        btnCartBuy1 = (Button) findViewById(R.id.btnCartOrderBuy);
 //        btnCartOrderCancel1 = (Button) findViewById(R.id.btnCartOrderCancel);
 
@@ -60,27 +61,12 @@ public class UserCartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //print cart items
                 if (cartItems.size() > 0) {
-                    //take current date as a string
-                    orderDate = java.text.DateFormat.getDateTimeInstance().format(java.util.Calendar.getInstance().getTime());
-                    SharedPreferenceController.setCurrentUser(UserCartActivity.this, "userName");
-                    userName = SharedPreferenceController.getCurrentUser(v.getContext());
-                    boolean res=false;
-                    Log.d("pref_userName", userName);
-                    for (ShoppingCartItem item : cartItems) {
-                        Log.d("cartitems", item.getName());
-                        Log.d("cartitems", String.valueOf(item.getQuantity()));
-                        Log.d("cartitems", String.valueOf(item.getToyID()));
-                        Log.d("cartitems", String.valueOf(item.getCost()));
-
-                        res=dbHelper.addOrder(userName, item.getToyID(), "ordered", item.getQuantity(), orderDate);
-                        Log.d("addOrder", String.valueOf(res));
-                    }
-
                     Intent intent = new Intent(v.getContext(), UserPlaceOrderActivity.class);
                     v.getContext().startActivity(intent);
                 }
                 else {
                     Log.d("cartitems", "cart is empty");
+                    Toast.makeText(UserCartActivity.this, "Cart is empty", Toast.LENGTH_SHORT).show();
                 }
             }
         });

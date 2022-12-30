@@ -3,13 +3,16 @@ package com.example.toyfirstmobile;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import com.example.toyfirstmobile.activity.dashboards.AdminDashboardActivity;
 import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.activity.login.UserLoginActivity;
 import com.example.toyfirstmobile.activity.register.UserRegisterActivity;
+import com.example.toyfirstmobile.db.DBHelper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -42,8 +45,31 @@ public class MainActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                DBHelper dbHelper = new DBHelper(v.getContext());
                 Intent intent =  new Intent(v.getContext(), UserDashboardActivity.class);
                 v.getContext().startActivity(intent);
+                /**
+                 * take all order detail from db base on order id
+                 */
+                /**
+                Cursor result = dbHelper.getOrderDetails(1);
+                //show the order details
+                if (result != null) {
+                    result.moveToFirst();
+                    //size of the result
+                    int size = result.getCount();
+                    //print the result
+                    for (int i = 0; i < size; i++) {
+                        Log.d("Hello", "Order ID: " + result.getString(0));
+                        Log.d("Hello", "User Name: " + result.getString(1));
+                        Log.d("Hello", "Order Status: " + result.getString(2));
+                        Log.d("Hello", "Order Date: " + result.getString(3));
+                        Log.d("Hello", "Toy ID: " + result.getString(4));
+                        Log.d("Hello", "Toy Quantity: " + result.getString(5));
+                        result.moveToNext();
+                    }
+                }
+                 */
             }
         });
 
