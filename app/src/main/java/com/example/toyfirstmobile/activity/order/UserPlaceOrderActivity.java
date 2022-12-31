@@ -128,6 +128,7 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
                 //close the cart activity
+                intent.putExtra("OrderId", orderId);
                 (UserPlaceOrderActivity.this).finish();
                 startActivity(intent);
 

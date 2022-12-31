@@ -40,6 +40,9 @@
             android:noHistory="true" />
         <activity android:name=".activity.order.UserPlaceOrderActivity" />
         <activity android:name=".activity.order.UserOrderConfirmationActivity" />
+        <activity android:name=".activity.order.UserViewOrderActivity" />
+        <activity android:name=".activity.order.ViewOneOrderActivity" />
+        <activity android:name=".activity.order.AdminViewOrderActivity" />
     </application>
 
 </manifest>

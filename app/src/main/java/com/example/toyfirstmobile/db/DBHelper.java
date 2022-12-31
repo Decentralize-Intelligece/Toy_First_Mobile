@@ -35,7 +35,7 @@ public class DBHelper  extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Orders(orderID INTEGER PRIMARY KEY AUTOINCREMENT, userName TEXT(20) NOT NULL, orderStatus TEXT(20) NOT NULL, orderDate TEXT(20) NOT NULL) ");
 
             //create OrderItems table with columns orderID, toyID, quantity orderId as foreign key from order table, toyID as foreign key from toy table
-            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS OrderItems(orderID INTEGER(4) NOT NULL, toyID INTEGER(4) NOT NULL, quantity INTEGER(4) NOT NULL, FOREIGN KEY (orderID) REFERENCES Orders(orderID) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (toyID) REFERENCES Toy(toyID) ON DELETE CASCADE ON UPDATE CASCADE) ");
+            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS OrderItems(orderID INTEGER(4) NOT NULL, toyID INTEGER(4) NOT NULL, quantity INTEGER(4) NOT NULL, FOREIGN KEY (orderID) REFERENCES Orders(orderID) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (toyID) REFERENCES Toy(toyID)) ");
 
 
         }
@@ -300,6 +300,70 @@ public class DBHelper  extends SQLiteOpenHelper {
                 "OrderItems as i ON o.orderId=i.orderId where o.orderID = ?", new String[]{String.valueOf(orderID)});
 //        Cursor cursor = DB.rawQuery("Select * from Orders  where orderID = ?", new String[]{String.valueOf(orderID)});
         return cursor;
+    }
+
+    public Cursor getOrderDetails(String userName) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select o.orderId,o.userName,o.orderStatus,o.orderDate,i.toyId,i.quantity from Orders as o  INNER JOIN " +
+                "OrderItems as i ON o.orderId=i.orderId where o.userName = ?", new String[]{userName});
+        return cursor;
+    }
+
+    public Cursor getOrders(String userName) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Orders where userName = ?", new String[]{userName});
+        return cursor;
+    }
+    public Cursor getOrders() {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from Orders ", null);
+        return cursor;
+    }
+
+    public Cursor getItems(int orderId) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select t.toyName, i.quantity,t.toyPrice from Toy AS t INNER JOIN" +
+                " OrderItems AS i ON t.toyId=i.toyId where i.orderId = ?", new String[]{String.valueOf(orderId)});
+        return cursor;
+    }
+
+    public boolean updateOrderStatus(int toyID) {
+        boolean result=false;
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("orderStatus", "Delivered");
+        try {
+            int value=DB.update("Orders", contentValues, "orderId = ?", new String[]{String.valueOf(toyID)});
+            if(value>0){
+                result=true;
+            }
+    }
+        catch (Exception e){
+            Log.d("updateOrderStatus", e.getMessage());
+        }
+        finally {
+            DB.close();
+            return result;
+        }
+    }
+
+    public boolean deleteOrder(int orderID) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        try {
+            DB.delete("Orders", "orderId = ?", new String[]{String.valueOf(orderID)});
+            DB.delete("OrderItems", "orderId = ?", new String[]{String.valueOf(orderID)});
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public boolean isDelivered(int orderId) {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select orderStatus from Orders where orderID = ? ", new String[]{String.valueOf(orderId)});
+        if (cursor.moveToFirst())
+            return cursor.getString(0).equals("Delivered");
+        return false;
     }
 }
 

@@ -6,10 +6,24 @@ public class Order {
 
     private int orderID;
     private String userName;
+    private int toyID;
+    private String status;//ordered , cancelled , delivered
+    private String orderDate;
 
+    public String getToyName() {
+        return toyName;
+    }
+
+    public int getToyPrice() {
+        return toyPrice;
+    }
+
+    private String toyName;
+    private int toyPrice;
+    private int quantity;
     public Order(){}
 
-    public Order(int orderID, String userName, int toyID, String status, int quantity, Date orderDate) {
+    public Order(int orderID, String userName, int toyID, String status, int quantity, String orderDate) {
         this.orderID = orderID;
         this.userName = userName;
         this.toyID = toyID;
@@ -18,10 +32,18 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    private int toyID;
-    private String status;//ordered , cancelled , delivered
-    private int quantity;
-    private Date orderDate;
+    public Order(int orderID, String userName, String status, String orderDate) {
+        this.orderID = orderID;
+        this.userName = userName;
+        this.status = status;
+        this.orderDate = orderDate;
+    }
+
+    public Order(String toyName, int toyPrice, int quantity) {
+        this.toyName = toyName;
+        this.toyPrice = toyPrice;
+        this.quantity = quantity;
+    }
 
     public int getOrderID() {
         return orderID;
@@ -63,11 +85,11 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public Date getOrderDate() {
+    public String getOrderDate() {
         return orderDate;
     }
 
-    public void setOrderDate(Date orderDate) {
+    public void setOrderDate(String orderDate) {
         this.orderDate = orderDate;
     }
 }
