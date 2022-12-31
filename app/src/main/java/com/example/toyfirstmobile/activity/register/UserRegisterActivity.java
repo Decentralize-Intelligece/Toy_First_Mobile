@@ -1,5 +1,6 @@
 package com.example.toyfirstmobile.activity.register;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +10,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.dashboards.AdminDashboardActivity;
+import com.example.toyfirstmobile.activity.dashboards.UserDashboardActivity;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.validation.Validation;
 
@@ -94,6 +97,8 @@ public class UserRegisterActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(getApplicationContext(),"Registration successful",Toast.LENGTH_SHORT).show();
                     dbHelper.insertUserData(email,userName, password,false,fName , lName,address1 ,address2 , address3, mobile);
+                    Intent intent = new Intent(v.getContext(), UserDashboardActivity.class);
+                    v.getContext().startActivity(intent);
                 }
 
 
