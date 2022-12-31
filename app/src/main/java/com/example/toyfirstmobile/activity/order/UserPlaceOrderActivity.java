@@ -33,7 +33,7 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
         btnPlaceOrder = (Button) findViewById(R.id.buttonPlaceOrder);
         cartItems = Arrays.asList(ShoppingCart.getItems());
 
-        SharedPreferenceController.setCurrentUser(UserPlaceOrderActivity.this, "pasindum");
+        //SharedPreferenceController.setCurrentUser(UserPlaceOrderActivity.this, "pasindum");
         userName = SharedPreferenceController.getCurrentUser(UserPlaceOrderActivity.this);
 
         EditText txtFName = (EditText) findViewById(R.id.editTextFirstName);
