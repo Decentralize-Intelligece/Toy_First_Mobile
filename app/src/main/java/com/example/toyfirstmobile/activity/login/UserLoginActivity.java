@@ -67,10 +67,13 @@ public class UserLoginActivity extends AppCompatActivity {
                                     Intent intent = new Intent(v.getContext(), UserDashboardActivity.class);
                                     //save username using shared preferences
                                     SharedPreferenceController.setCurrentUser(v.getContext(), res.getString(2));
+                                    UserLoginActivity.this.finish();
                                     v.getContext().startActivity(intent);
                                 } else {
                                     Log.d("UserLoginActivity", "admin");
+                                    SharedPreferenceController.setCurrentUser(v.getContext(), res.getString(2));
                                     Intent intent = new Intent(v.getContext(), AdminDashboardActivity.class);
+                                    UserLoginActivity.this.finish();
                                     v.getContext().startActivity(intent);
                                 }
                             }

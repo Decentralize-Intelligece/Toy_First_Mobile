@@ -30,6 +30,7 @@ public class UserOrderConfirmationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), UserViewOrderActivity.class);
                 //close all activities before going to the main activity
+                (UserOrderConfirmationActivity.this).finish();
                 startActivity(intent);
             }
         });
