@@ -108,17 +108,30 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
                         Log.d("cart items", String.valueOf(item.getCost()));
 
                         res=dbHelper.addOderItems(orderId, item.getToyID(), item.getQuantity());
+                        //get the current toy quantity
+                        int toyQuantity = dbHelper.getToyQuantity(item.getToyID());
+                        boolean res2 = dbHelper.updateToyQuantity(item.getToyID(),toyQuantity-item.getQuantity());
                         Log.d("addOrder", String.valueOf(res));
+                        Log.d("updateToyQuantity", String.valueOf(res2));
                     }
 
 
                 }
                 Cursor result = dbHelper.getOrderDetails(1);
-                ShoppingCart.items.clear();
-                ShoppingCart.total=0;
+                //show the order details
+                if (result != null) {
+                    result.moveToFirst();
+                    //size of the result
+                    int size = result.getCount();
+                    Log.d("order details", String.valueOf(size));
+                    Log.d("orderID", result.getString(0));
+                    Log.d("userName", result.getString(1));
+                    Log.d("orderStatus", result.getString(2));
+                    Log.d("orderDate", result.getString(3));
+                }
+
                 Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
                 //close the cart activity
-                intent.putExtra("OrderId", orderId);
                 (UserPlaceOrderActivity.this).finish();
                 startActivity(intent);
 
