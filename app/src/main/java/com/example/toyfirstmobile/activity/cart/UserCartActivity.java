@@ -70,6 +70,24 @@ public class UserCartActivity extends AppCompatActivity {
                 }
             }
         });
+
+        btnCartOrderCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //print cart items
+                if (cartItems.size() > 0) {
+                    ShoppingCart.items.clear();
+                    ShoppingCart.total = 0;
+                    Intent intent = new Intent(v.getContext(), UserCartActivity.class);
+                    UserCartActivity.this.finish();
+//                    v.getContext().startActivity(intent);
+                }
+                else {
+                    Log.d("cartitems", "cart is empty");
+                    Toast.makeText(UserCartActivity.this, "Cart is empty", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     private void initRecyclerView() {

@@ -54,7 +54,6 @@ public class ViewOneOrderAdapter extends RecyclerView.Adapter<ViewOneOrderAdapte
         private TextView txtToyName;
         private TextView txtToyPrice;
         private TextView txtQuantity;
-        private Button btnCancel;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -63,7 +62,7 @@ public class ViewOneOrderAdapter extends RecyclerView.Adapter<ViewOneOrderAdapte
             txtQuantity = itemView.findViewById(R.id.txtViewOrderToyQty);
         }
 
-        public void setData(String toyName, int toyPrice, int quantity) {
+        public void setData(String toyName, int quantity, int toyPrice) {
             txtToyName.setText(toyName);
             txtQuantity.setText(String.valueOf(quantity));
             txtToyPrice.setText(String.valueOf(toyPrice));

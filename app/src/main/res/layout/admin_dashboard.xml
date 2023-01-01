@@ -19,7 +19,7 @@
             tools:layout_editor_absoluteY="-61dp">
 
             <Button
-                android:id="@+id/buttonElectronics"
+                android:id="@+id/btnLogoutAdmin"
                 android:layout_width="245dp"
                 android:layout_height="75dp"
                 android:layout_marginStart="83dp"
