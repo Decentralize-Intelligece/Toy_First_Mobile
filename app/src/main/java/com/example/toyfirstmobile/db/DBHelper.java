@@ -365,6 +365,41 @@ public class DBHelper  extends SQLiteOpenHelper {
             return cursor.getString(0).equals("Delivered");
         return false;
     }
+
+
+
+    public boolean updateToyQuantity(int toyID, int toyQuantity) {
+        boolean result=false;
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("toyQuantity", toyQuantity);
+
+        try {
+            int value=DB.update("Toy", contentValues, "toyID = ?", new String[]{String.valueOf(toyID)});
+            if(value>0){
+                result=true;
+            }
+//            result = true;
+        }catch (Exception e){
+            Log.d("updateToyQuantity", e.getMessage());
+        }
+        finally {
+            DB.close();
+            return result;
+        }
+    }
+
+
+    public int getToyQuantity(int toyID){
+        SQLiteDatabase DB = this.getWritableDatabase();
+//        Cursor cursor = DB.rawQuery("Select * from Orders",null);
+        Cursor cursor = DB.rawQuery("SELECT * FROM Toy WHERE toyID =?",new String[]{String.valueOf(toyID)});
+        if (cursor.moveToFirst()){
+            Log.d("getToyQuantity", String.valueOf(cursor.getInt(3)));
+            return cursor.getInt(3);}
+        else
+            return 0;
+    }
 }
 
 
