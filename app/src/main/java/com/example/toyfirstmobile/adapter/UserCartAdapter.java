@@ -10,12 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
 import com.example.toyfirstmobile.activity.cart.UserCartActivity;
+import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.ShoppingCart;
 import com.example.toyfirstmobile.model.ShoppingCartItem;
 
@@ -25,10 +27,13 @@ public class UserCartAdapter extends RecyclerView.Adapter<UserCartAdapter.ViewHo
 
     private List<ShoppingCartItem> itemList;
     private LayoutInflater mInflater;
+    private DBHelper dbHelper;
 
-    public UserCartAdapter(Context context, List<ShoppingCartItem> itemList) {
+
+    public UserCartAdapter(Context context, List<ShoppingCartItem> itemList,DBHelper dbHelper) {
         this.mInflater = LayoutInflater.from(context);
         this.itemList = itemList;
+        this.dbHelper = dbHelper;
     }
 
     @NonNull
@@ -83,8 +88,27 @@ public class UserCartAdapter extends RecyclerView.Adapter<UserCartAdapter.ViewHo
             btnCartPlus.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
                     Log.d("CartA", txtCartToyName.getText().toString() + " increased");
-                    ShoppingCart.addItem(new ShoppingCartItem(name,toyID,1,itemCost));
+                    //get the total items for that particular item
+
+                    int toyQuantityStore = dbHelper.getToyQuantity(toyID);
+                     ShoppingCartItem[] cartItems= ShoppingCart.getItems();
+
+                     //get the item with the given id from the cart item list
+                    int currentTotalItems = 2;
+                    for(int i=0;i<cartItems.length;i++){
+                        if(cartItems[i].getToyID()==toyID)currentTotalItems=cartItems[i].getQuantity();
+                    }
+                    Log.d("Toys", toyQuantityStore + " amount");
+                    Log.d("Toys", currentTotalItems + " amount");
+                    if(currentTotalItems<toyQuantityStore){
+                        ShoppingCart.addItem(new ShoppingCartItem(name,toyID,1,itemCost));
+                    }
+                    else{
+                        Toast.makeText(v.getContext(),"Stock not available",Toast.LENGTH_SHORT).show();
+                    }
+
 
                     Intent intent =  new Intent(v.getContext(), UserCartActivity.class);
                     v.getContext().startActivity(intent);

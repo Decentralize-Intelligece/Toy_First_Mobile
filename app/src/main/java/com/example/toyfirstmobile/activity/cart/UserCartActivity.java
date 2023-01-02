@@ -95,7 +95,7 @@ public class UserCartActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
-        UserCartAdapter adapter = new UserCartAdapter(this, cartItems);
+        UserCartAdapter adapter = new UserCartAdapter(this, cartItems,dbHelper);
         recyclerView.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
