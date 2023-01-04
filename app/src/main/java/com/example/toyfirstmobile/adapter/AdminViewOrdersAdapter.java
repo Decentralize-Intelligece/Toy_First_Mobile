@@ -14,6 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.activity.category.AdminCategoryActivity;
+import com.example.toyfirstmobile.activity.order.AdminViewOrderActivity;
+import com.example.toyfirstmobile.activity.order.UserPlaceOrderActivity;
 import com.example.toyfirstmobile.activity.order.ViewOneOrderActivity;
 import com.example.toyfirstmobile.db.DBHelper;
 import com.example.toyfirstmobile.model.Order;
@@ -78,6 +81,10 @@ public class AdminViewOrdersAdapter extends RecyclerView.Adapter<AdminViewOrders
                     int toyID = Integer.parseInt(txtOrderID.getText().toString());
                     boolean res=dbHelper.updateOrderStatus(toyID);
                     if(res){
+                        Intent intent = new Intent(v.getContext(), AdminViewOrderActivity.class);
+                        ((AdminViewOrderActivity) v.getContext()).finish();
+//                        ((AdminViewOrderActivity)adapterContext).finish();.
+                        v.getContext().startActivity(intent);
                         Toast.makeText(v.getContext(), "Order has been processed", Toast.LENGTH_SHORT).show();
                     }
                     else{
