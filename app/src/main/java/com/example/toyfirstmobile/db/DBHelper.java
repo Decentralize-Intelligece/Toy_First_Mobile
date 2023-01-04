@@ -19,6 +19,8 @@ public class DBHelper  extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
         try {
+
+            Log.d("adminn", "running try");
             //create admin table primary key is adminID, with columns adminID, adminName, adminPassword, account type (admin or user)
 //            sqLiteDatabase.execSQL("Create Table IF NOT EXISTS Admin(adminID INTEGER PRIMARY KEY AUTOINCREMENT, adminName TEXT(20) NOT NULL, adminPassword TEXT(10) NOT NULL, isAdmin INTEGER DEFAULT 1)");
 
@@ -38,10 +40,18 @@ public class DBHelper  extends SQLiteOpenHelper {
             sqLiteDatabase.execSQL("Create Table IF NOT EXISTS OrderItems(orderID INTEGER(4) NOT NULL, toyID INTEGER(4) NOT NULL, quantity INTEGER(4) NOT NULL, FOREIGN KEY (orderID) REFERENCES Orders(orderID) ON DELETE CASCADE ON UPDATE CASCADE, FOREIGN KEY (toyID) REFERENCES Toy(toyID)) ");
 
 
+            sqLiteDatabase.execSQL("INSERT INTO User('email','userName','userPassword','isAdmin','fName','lName','address1','address2','address3','phone') VALUES('admin@email.com','Admin','Admin','1','admin','toyapp','aaa','bbb','ccc','0717489293')");
+            //boolean result = insertUserData("admin@email.com","Admin","Admin",true,"admin","toyapp","aaa","bbb","ccc","0777284512");
+
+            Log.d("adminn", "running try");
+           // Log.d("adminn", String.valueOf(result));
+
+
         }
 
         catch(Exception e){
             e.printStackTrace();
+            Log.d("adminn", "running catch");
         }
         }
 
@@ -138,6 +148,12 @@ public class DBHelper  extends SQLiteOpenHelper {
     public Cursor getToyCategoryData(){
         SQLiteDatabase DB = this.getWritableDatabase();
         Cursor cursor = DB.rawQuery("Select * from ToyCategory",null);
+        return cursor;
+    }
+
+    public Cursor getUserData(){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        Cursor cursor = DB.rawQuery("Select * from User",null);
         return cursor;
     }
 
