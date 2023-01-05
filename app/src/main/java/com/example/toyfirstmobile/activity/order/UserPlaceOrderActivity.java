@@ -113,6 +113,7 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
 
 
                 }
+                Log.d("addOrder", String.valueOf(res));
                 Cursor result = dbHelper.getOrderDetails(1);
                 ShoppingCart.items.clear();
                 ShoppingCart.total=0;
