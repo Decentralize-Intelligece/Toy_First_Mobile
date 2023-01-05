@@ -23,12 +23,14 @@ public class UserOrderConfirmationActivity extends AppCompatActivity {
 //        Bundle extras = getIntent().getExtras();
 //        if (extras != null) {
 //            int orderNumber = extras.getInt("OrderId");
-//            Log.d("OrderNumber", String.valueOf(orderNumber));
+
 //            txtOrderNumber.setText(String.valueOf(orderNumber));
 //        }
+
         DBHelper dbHelper = new DBHelper(this);
-        int orderNumber=dbHelper.getLastOrderID();
-        txtOrderNumber.setText(String.valueOf(orderNumber));
+        int orderId = dbHelper.getLastOrderID();
+        txtOrderNumber.setText(String.valueOf(orderId));
+
         Button btnViewOrders = (Button) findViewById(R.id.btnAdminToyStore);
         btnViewOrders.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -95,7 +96,9 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
 
                 int orderId = dbHelper.getLastOrderID();
                 orderId++;
-                orderDate = java.text.DateFormat.getDateTimeInstance().format(java.util.Calendar.getInstance().getTime());
+//                orderDate = java.text.DateFormat.getDateTimeInstance().format(java.util.Calendar.getInstance().getTime());
+                orderDate = java.text.DateFormat.getDateInstance().format(java.util.Calendar.getInstance().getTime());
+
                 boolean res=false;
                 Log.d("pref_userName", userName);
                 res = dbHelper.addOrder(orderId,userName,orderStatus,orderDate);
@@ -121,12 +124,22 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
                 Cursor result = dbHelper.getOrderDetails(1);
                 //show the order details
 
-                Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
-                //close the cart activity
+                if (result != null) {
+                    result.moveToFirst();
+                    //size of the result
+                    int size = result.getCount();
+                    Log.d("order details", String.valueOf(size));
+                    Log.d("orderID", result.getString(0));
+                    Log.d("userName", result.getString(1));
+                    Log.d("orderStatus", result.getString(2));
+                    Log.d("orderDate", result.getString(3));
+                }
                 ShoppingCart.items.clear();
                 ShoppingCart.total=0;
+                Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
+                //close the cart activity
                 (UserPlaceOrderActivity.this).finish();
-                Log.d("orderID", String.valueOf(orderId));
+                //Log.d("orderID", String.valueOf(orderId));
                 intent.putExtra("orderID", orderId);
                 startActivity(intent);
 
