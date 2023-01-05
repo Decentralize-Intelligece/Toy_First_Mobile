@@ -2,6 +2,7 @@ package com.example.toyfirstmobile.activity.order;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,6 +23,7 @@ public class UserOrderConfirmationActivity extends AppCompatActivity {
 //        Bundle extras = getIntent().getExtras();
 //        if (extras != null) {
 //            int orderNumber = extras.getInt("OrderId");
+
 //            txtOrderNumber.setText(String.valueOf(orderNumber));
 //        }
 

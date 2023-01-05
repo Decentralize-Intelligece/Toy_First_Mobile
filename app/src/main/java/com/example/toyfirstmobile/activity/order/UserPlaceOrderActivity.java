@@ -120,8 +120,10 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
 
 
                 }
+                Log.d("addOrder", String.valueOf(res));
                 Cursor result = dbHelper.getOrderDetails(1);
                 //show the order details
+
                 if (result != null) {
                     result.moveToFirst();
                     //size of the result
@@ -137,6 +139,8 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
                 //close the cart activity
                 (UserPlaceOrderActivity.this).finish();
+                //Log.d("orderID", String.valueOf(orderId));
+                intent.putExtra("orderID", orderId);
                 startActivity(intent);
 
             }
