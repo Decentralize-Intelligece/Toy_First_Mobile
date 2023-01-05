@@ -76,7 +76,7 @@ public class DBHelper  extends SQLiteOpenHelper {
         contentValues.put("address2",Address2);
         contentValues.put("address3",Address3);
         contentValues.put("phone",Phone);
-        long result =DB.insert("User",null,contentValues);
+        long result =DB.    insert("User",null,contentValues);
         return result != 1;
     }
 

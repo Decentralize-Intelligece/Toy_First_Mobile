@@ -15,6 +15,7 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.List;
 
@@ -95,7 +96,9 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
 
                 int orderId = dbHelper.getLastOrderID();
                 orderId++;
-                orderDate = java.text.DateFormat.getDateTimeInstance().format(java.util.Calendar.getInstance().getTime());
+//                orderDate = java.text.DateFormat.getDateTimeInstance().format(java.util.Calendar.getInstance().getTime());
+                orderDate = java.text.DateFormat.getDateInstance().format(java.util.Calendar.getInstance().getTime());
+
                 boolean res=false;
                 Log.d("pref_userName", userName);
                 res = dbHelper.addOrder(orderId,userName,orderStatus,orderDate);
@@ -129,7 +132,8 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
                     Log.d("orderStatus", result.getString(2));
                     Log.d("orderDate", result.getString(3));
                 }
-
+                ShoppingCart.items.clear();
+                ShoppingCart.total=0;
                 Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
                 //close the cart activity
                 (UserPlaceOrderActivity.this).finish();

@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.toyfirstmobile.R;
+import com.example.toyfirstmobile.db.DBHelper;
 
 public class UserOrderConfirmationActivity extends AppCompatActivity {
     @Override
@@ -18,11 +19,15 @@ public class UserOrderConfirmationActivity extends AppCompatActivity {
         TextView txtOrderNumber = (TextView) findViewById(R.id.editTextOrderNumber);
 
         //get the order number from the previous activity
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            int orderNumber = extras.getInt("OrderId");
-            txtOrderNumber.setText(String.valueOf(orderNumber));
-        }
+//        Bundle extras = getIntent().getExtras();
+//        if (extras != null) {
+//            int orderNumber = extras.getInt("OrderId");
+//            txtOrderNumber.setText(String.valueOf(orderNumber));
+//        }
+
+        DBHelper dbHelper = new DBHelper(this);
+        int orderId = dbHelper.getLastOrderID();
+        txtOrderNumber.setText(String.valueOf(orderId));
 
         Button btnViewOrders = (Button) findViewById(R.id.btnAdminToyStore);
         btnViewOrders.setOnClickListener(new View.OnClickListener() {
