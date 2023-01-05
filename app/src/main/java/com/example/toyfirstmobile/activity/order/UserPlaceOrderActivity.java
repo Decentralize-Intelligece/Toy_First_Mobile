@@ -117,6 +117,7 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
 
 
                 }
+                Log.d("addOrder", String.valueOf(res));
                 Cursor result = dbHelper.getOrderDetails(1);
                 //show the order details
                 if (result != null) {
