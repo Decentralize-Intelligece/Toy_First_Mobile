@@ -111,6 +111,7 @@ public class AdminAddToyActivity extends AppCompatActivity {
                 //dbHelper.insertToyData(5,toyName,toyPrice,toyQuantity,toyCategory,imageInByte);
                 Intent intent =  new Intent(v.getContext(), AdminToyStoreActivity.class);
                 v.getContext().startActivity(intent);
+                finish();
 
             }
         });
@@ -128,6 +129,7 @@ public class AdminAddToyActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        Log.d("Hello","OAR");
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK){
             imageUri = data.getData();
@@ -139,6 +141,7 @@ public class AdminAddToyActivity extends AppCompatActivity {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 imageToStore.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
                 imageInByte = byteArrayOutputStream.toByteArray();
+                Log.d("Hello","inside img try");
 
 
             } catch (IOException e) {

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        DBHelper dbHelper = new DBHelper(this);
         getSupportActionBar().hide();
         super.onCreate(savedInstanceState);
 
@@ -41,46 +42,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button button3 = (Button) findViewById(R.id.btnGoToUserDashboard);
-        button3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DBHelper dbHelper = new DBHelper(v.getContext());
-                Intent intent =  new Intent(v.getContext(), UserDashboardActivity.class);
-                v.getContext().startActivity(intent);
-                /**
-                 * take all order detail from db base on order id
-                 */
-                /**
-                Cursor result = dbHelper.getOrderDetails(1);
-                //show the order details
-                if (result != null) {
-                    result.moveToFirst();
-                    //size of the result
-                    int size = result.getCount();
-                    //print the result
-                    for (int i = 0; i < size; i++) {
-                        Log.d("Hello", "Order ID: " + result.getString(0));
-                        Log.d("Hello", "User Name: " + result.getString(1));
-                        Log.d("Hello", "Order Status: " + result.getString(2));
-                        Log.d("Hello", "Order Date: " + result.getString(3));
-                        Log.d("Hello", "Toy ID: " + result.getString(4));
-                        Log.d("Hello", "Toy Quantity: " + result.getString(5));
-                        result.moveToNext();
-                    }
-                }
-                 */
-            }
-        });
-
-        Button button4 = (Button) findViewById(R.id.btnGoToAdminDashboard);
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent =  new Intent(v.getContext(), AdminDashboardActivity.class);
-                v.getContext().startActivity(intent);
-            }
-        });
 
 
 

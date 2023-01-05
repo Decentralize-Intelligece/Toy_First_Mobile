@@ -65,44 +65,4 @@
         app:layout_constraintVertical_bias="0.768"
         tools:ignore="MissingConstraints" />
 
-    <Button
-        android:id="@+id/btnGoToUserDashboard"
-        android:layout_width="245dp"
-        android:layout_height="75dp"
-        android:backgroundTint="#FE6D40"
-        android:backgroundTintMode="src_in"
-        android:text="User DSHB"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/store48px"
-        app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653"
-        tools:ignore="MissingConstraints" />
-
-    <Button
-        android:id="@+id/btnGoToAdminDashboard"
-        android:layout_width="245dp"
-        android:layout_height="75dp"
-        android:backgroundTint="#FE6D40"
-        android:backgroundTintMode="src_in"
-        android:text="Admin DSHB"
-        android:textAllCaps="false"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:cornerRadius="15dp"
-        app:icon="@drawable/store48px"
-        app:iconPadding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539"
-        tools:ignore="MissingConstraints" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
