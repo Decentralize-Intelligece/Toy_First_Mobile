@@ -120,20 +120,14 @@ public class UserPlaceOrderActivity extends AppCompatActivity {
                 Log.d("addOrder", String.valueOf(res));
                 Cursor result = dbHelper.getOrderDetails(1);
                 //show the order details
-                if (result != null) {
-                    result.moveToFirst();
-                    //size of the result
-                    int size = result.getCount();
-                    Log.d("order details", String.valueOf(size));
-                    Log.d("orderID", result.getString(0));
-                    Log.d("userName", result.getString(1));
-                    Log.d("orderStatus", result.getString(2));
-                    Log.d("orderDate", result.getString(3));
-                }
 
                 Intent intent = new Intent(UserPlaceOrderActivity.this, UserOrderConfirmationActivity.class);
                 //close the cart activity
+                ShoppingCart.items.clear();
+                ShoppingCart.total=0;
                 (UserPlaceOrderActivity.this).finish();
+                Log.d("orderID", String.valueOf(orderId));
+                intent.putExtra("orderID", orderId);
                 startActivity(intent);
 
             }
